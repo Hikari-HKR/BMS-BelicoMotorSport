@@ -38,41 +38,59 @@ footer{text-align:center;padding:26px;font-family:Orbitron, sans-serif;color:var
   .logo{height:52px}
   nav a{font-size:.95rem;margin:0 8px}
 }
+header { position: relative; }
+
 .sim-menu {
   position: absolute;
-  top: 5px;
+  top: 8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
-  height: 60px;
+  width: 85%;
+  height: 64px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
+  display: block;
+  background: rgba(0, 0, 0, 0.55);
   border: 2px solid #ffcc00;
   border-radius: 12px;
-  background: rgba(0, 0, 0, 0.6);
-  box-shadow: 0 0 12px #ffcc00, 0 0 20px #ffcc00 inset;
+  box-shadow: 0 0 12px rgba(255,204,0,0.12);
+  z-index: 20;
 }
 
 .sim-track {
   display: flex;
-  gap: 50px;
+  align-items: center;
+  gap: 48px;
+  width: 200%;
+  padding: 8px 28px;
+  box-sizing: content-box;
   animation: scrollLogos 18s linear infinite;
 }
 
+.sim-track .group {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
 .sim-track img {
-  height: 50px;
+  height: 52px;
+  display: block;
   filter: drop-shadow(0 0 10px #ffcc00);
-  transition: transform 0.3s, filter 0.3s;
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 
 .sim-track img:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 20px #fff);
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 18px #fff);
 }
 
-/* Movimiento horizontal */
 @keyframes scrollLogos {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 700px) {
+  .sim-menu { width: 95%; height: 54px; top: 6px; }
+  .sim-track img { height: 40px; }
+  .sim-track { gap: 30px; padding: 6px 16px; animation-duration: 14s; }
 }

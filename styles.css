@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700&display=swap');
+:root{
+  --accent: #ffcc00;
+  --dark: #000;
+  --panel: rgba(0,0,0,0.85);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:#000;font-family:Anton, sans-serif;color:#fff;overflow-x:hidden}
+/* fondos combinados */
+body::before{
+  content:"";position:fixed;inset:0;
+  background:url('benoit-fraikin-6l6XOeYS6BY-unsplash.jpg') center/cover no-repeat;
+  filter:brightness(.4);z-index:-2;
+}
+body::after{
+  content:"";position:fixed;inset:0;
+  background:url('167485-porsche_911_rsr_2020-el_porsche_911_gt3_rsr-porsche_911_carrera_rsr-porsche_911_2020-porsche-x750.jpg') center/cover no-repeat;
+  opacity:.35;animation:fondoMovimiento 20s ease-in-out infinite alternate;z-index:-1;
+}
+@keyframes fondoMovimiento{from{opacity:.3;transform:scale(1)}to{opacity:.6;transform:scale(1.08)}}
+header{background:var(--panel);display:flex;justify-content:space-between;align-items:center;padding:12px 28px;border-bottom:3px solid var(--accent);position:sticky;top:0;z-index:10}
+.logo{height:64px}
+nav a{color:var(--accent);margin:0 12px;text-decoration:none;font-size:1.05rem;letter-spacing:1px;transition:color .2s}
+nav a:hover{color:#fff}
+.content{text-align:center;margin-top:110px;text-shadow:2px 2px 14px #000;padding:0 20px;animation:fadeIn 1.6s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.content h1{font-size:3.2rem;color:var(--accent);margin:0 0 18px;text-transform:uppercase}
+.content p{font-family:Orbitron, sans-serif;font-size:1.25rem;margin:0 0 42px}
+.buttons{display:flex;gap:18px;justify-content:center;align-items:center}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border:2px solid var(--accent);border-radius:10px;background:rgba(0,0,0,.5);text-decoration:none;transition:transform .18s,background .18s}
+.icon-btn img{max-width:42px;max-height:42px;display:block}
+.icon-btn:hover{transform:scale(1.08);background:var(--accent)}
+footer{text-align:center;padding:26px;font-family:Orbitron, sans-serif;color:var(--accent);background:var(--panel);margin-top:80px}
+/* responsive */
+@media (max-width:600px){
+  .content h1{font-size:2rem}
+  .icon-btn{width:56px;height:56px}
+  .logo{height:52px}
+  nav a{font-size:.95rem;margin:0 8px}
+}

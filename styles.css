@@ -66,8 +66,8 @@ header { position: relative; }
   animation: scrollLogos 18s linear infinite;
 }
 .sim-track img {
-  height: 24px;            
-  display: block;
+  height: 34px !important;      
+  display: block; /* 🔥 FORZAMOS tamaño */
   filter: drop-shadow(0 0 8px #ffcc00);
   opacity: 0.9;
   transition: transform 0.25s ease, filter 0.25s ease;

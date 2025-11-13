@@ -38,3 +38,41 @@ footer{text-align:center;padding:26px;font-family:Orbitron, sans-serif;color:var
   .logo{height:52px}
   nav a{font-size:.95rem;margin:0 8px}
 }
+.sim-menu {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 60px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border: 2px solid #ffcc00;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 12px #ffcc00, 0 0 20px #ffcc00 inset;
+}
+
+.sim-track {
+  display: flex;
+  gap: 50px;
+  animation: scrollLogos 18s linear infinite;
+}
+
+.sim-track img {
+  height: 50px;
+  filter: drop-shadow(0 0 10px #ffcc00);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.sim-track img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 20px #fff);
+}
+
+/* Movimiento horizontal */
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

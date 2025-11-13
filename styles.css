@@ -38,3 +38,40 @@ footer{text-align:center;padding:26px;font-family:Orbitron, sans-serif;color:var
   .logo{height:52px}
   nav a{font-size:.95rem;margin:0 8px}
 }
+* 🎮 Menú central animado con logos de simuladores */
+.sim-menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 450px;
+  height: 70px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  border: 2px solid #ffcc00;
+  border-radius: 10px;
+  padding: 5px 0;
+}
+
+.sim-track {
+  display: flex;
+  gap: 40px;
+  animation: scrollLogos 18s linear infinite;
+}
+
+.sim-menu img {
+  height: 55px;
+  filter: drop-shadow(0 0 5px black);
+  transition: transform 0.3s;
+}
+
+.sim-menu img:hover {
+  transform: scale(1.15);
+}
+
+/* 🎥 Animación del cartel que se mueve */
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

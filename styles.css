@@ -38,7 +38,7 @@ footer{text-align:center;padding:26px;font-family:Orbitron, sans-serif;color:var
   .logo{height:52px}
   nav a{font-size:.95rem;margin:0 8px}
 }
-* 🎮 Menú central animado con logos de simuladores */
+/* 🎮 Menú central animado con logos de simuladores */
 .sim-menu {
   position: absolute;
   left: 50%;
@@ -75,3 +75,4 @@ footer{text-align:center;padding:26px;font-family:Orbitron, sans-serif;color:var
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+

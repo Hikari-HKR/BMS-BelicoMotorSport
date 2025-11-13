@@ -65,32 +65,16 @@ header { position: relative; }
   box-sizing: content-box;
   animation: scrollLogos 18s linear infinite;
 }
-
-.sim-track .group {
-  display: flex;
-  gap: 48px;
-  align-items: center;
-}
-
 .sim-track img {
-  height: 52px;
+  height: 34px;            /* 🔥 Ahora son más pequeños que el logo BMS */
   display: block;
-  filter: drop-shadow(0 0 10px #ffcc00);
+  filter: drop-shadow(0 0 8px #ffcc00);
+  opacity: 0.9;
   transition: transform 0.25s ease, filter 0.25s ease;
 }
 
 .sim-track img:hover {
-  transform: scale(1.12);
-  filter: drop-shadow(0 0 18px #fff);
-}
-
-@keyframes scrollLogos {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@media (max-width: 700px) {
-  .sim-menu { width: 95%; height: 54px; top: 6px; }
-  .sim-track img { height: 40px; }
-  .sim-track { gap: 30px; padding: 6px 16px; animation-duration: 14s; }
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 16px #ffffff);
+  opacity: 1;
 }

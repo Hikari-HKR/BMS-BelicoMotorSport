@@ -159,31 +159,113 @@
   transition: 0.25s ease;
 }
 
-/* 🌩️ Hover explosivo */
-.btn-pilotos:hover {
-  transform: scale(1.15);
-  background: #ff0000;
-  color: #000;
-  box-shadow: 
-    0 0 25px #ff0000,
-    0 0 45px #ff0000,
-    inset 0 0 20px #000;
+/* ⚡🔥 BOTÓN GLITCH ROJO NEÓN */
+.btn-pilotos {
+  position: relative;
+  display: inline-block;
+
+  padding: 18px 45px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+
+  font-size: 2.3em;
+  font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+
+  color: #ff0000;
+  text-decoration: none;
+
+  border: 3px solid #ff0000;
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  box-shadow: 0 0 20px #ff0000;
+  overflow: hidden;
+  transition: 0.2s ease;
 }
 
-/* ⚡ Animación */
-@keyframes neonPulse {
+/* 🔥 Capas del glitch */
+.btn-pilotos::before,
+.btn-pilotos::after {
+  content: "PILOTOS DEL EQUIPO";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #ff0000;
+  background: transparent;
+  text-align: center;
+  padding-top: 18px;
+  pointer-events: none;
+  clip-path: inset(0 0 0 0);
+  opacity: 0;
+}
+
+.btn-pilotos::before {
+  animation: glitchLeft 1.3s infinite linear alternate-reverse;
+  color: #ff0044;
+}
+
+.btn-pilotos::after {
+  animation: glitchRight 1.3s infinite linear alternate;
+  color: #ff0011;
+}
+
+/* 🔥 Animaciones glitch */
+@keyframes glitchLeft {
   0% {
-    box-shadow: 
-      0 0 10px #ff0000,
-      0 0 20px #ff0000,
-      inset 0 0 5px #ff0000;
+    opacity: 0;
+    transform: translate(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-3px, -2px);
+  }
+  20% {
+    opacity: 0.5;
+    transform: translate(-5px, 2px);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(-2px, 3px);
   }
   100% {
-    box-shadow: 
-      0 0 25px #ff0000,
-      0 0 50px #ff0000,
-      inset 0 0 15px #ff0000;
+    opacity: 0;
+    transform: translate(0);
   }
+}
+
+@keyframes glitchRight {
+  0% {
+    opacity: 0;
+    transform: translate(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(3px, 2px);
+  }
+  20% {
+    opacity: 0.5;
+    transform: translate(5px, -2px);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(2px, -3px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0);
+  }
+}
+
+/* ⚡ Hover agresivo */
+.btn-pilotos:hover {
+  background: #ff0000;
+  color: #000;
+  transform: scale(1.12);
+  box-shadow: 0 0 40px #ff0000;
 }
   </style>
 </head>
@@ -214,7 +296,7 @@
   </header>
 <section class="content">
 
-<a href="#pilotos-equipo" class="boton-pilotos">Pilotos del equipo</a>
+<a href="#pilotos" class="btn-pilotos">PILOTOS DEL EQUIPO</a>
   <h1>Siente la potencia. Conquista la pista.</h1>
   <p>Belico MotorSport — diseño agresivo y rendimiento extremo.</p>
   <h2>Contáctanos y pruébate en nuestro equipo</h2>

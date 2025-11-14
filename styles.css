@@ -78,3 +78,32 @@ header { position: relative; }
   filter: drop-shadow(0 0 16px #ffffff);
   opacity: 1;
 }
+/* Botón Pilotos */
+.btn-pilotos { display: inline-block; margin-bottom: 40px; padding: 18px 40px; font-size: 1.6em; color: #000;
+background: #ffcc00; border-radius: 10px; text-decoration: none; animation: pulse 1.5s infinite;
+font-family: 'Orbitron', sans-serif; letter-spacing: 2px; }
+
+
+.btn-pilotos:hover { transform: scale(1.1); background: white; }
+
+
+@keyframes pulse { 0% { box-shadow: 0 0 10px #ffcc00; } 50% { box-shadow: 0 0 25px #ffcc00; }
+100% { box-shadow: 0 0 10px #ffcc00; } }
+
+
+/* Galería Pilotos */
+.pilotos-section { margin-top: 120px; padding: 40px; background: url('../img/fibra-carbono.jpg') center/cover no-repeat;
+border-top: 4px solid #ffcc00; }
+
+
+.pilotos-title { font-size: 3em; text-align: center; color: #ffcc00; }
+
+
+.pilotos-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;
+max-width: 1300px; margin: auto; }
+
+
+.piloto-card { text-align: center; }
+.piloto-card img { width: 100%; border-radius: 12px; border: 3px solid #ffcc00; transition: 0.3s; }
+.piloto-card img:hover { transform: scale(1.07); box-shadow: 0 0 20px #ffcc00; }
+piloto-card h3 { margin-top: 12px; font-family: 'Orbitron', sans-serif; }

@@ -78,4 +78,23 @@ header { position: relative; }
   filter: drop-shadow(0 0 16px #ffffff);
   opacity: 1;
 }
-<button class="btn-pilotos">Pilotos del equipo</button>
+.btn-pilotos {
+  font-family: 'Impact', 'Anton', 'Oswald', sans-serif;
+  font-size: 1.4rem;
+  padding: 14px 28px;
+  color: #ff0000;
+  background: #1a1a1a;
+  border: 2px solid #ff0000;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 0 8px #ff0000;
+}
+
+.btn-pilotos:hover {
+  background: #ff0000;
+  color: #000;
+  box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+  transform: scale(1.05);
+}

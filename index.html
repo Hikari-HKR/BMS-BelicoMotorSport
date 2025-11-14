@@ -1,55 +1,150 @@
 <!DOCTYPE html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bélico MotorSport</title>
-<link rel="stylesheet" href="css/style.css">
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bélico MotorSport</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700&display=swap');
+    body { margin: 0; padding: 0; font-family: 'Anton', sans-serif; color: #fff; background: #000; overflow-x: hidden; }
+    body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: url('benoit-fraikin-6l6XOeYS6BY-unsplash.jpg') center/cover no-repeat; filter: brightness(0.4); z-index: -2; }
+    body::after { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: url('167485-porsche_911_rsr_2020-el_porsche_911_gt3_rsr-porsche_911_carrera_rsr-porsche_911_2020-porsche-x750.jpg') center/cover no-repeat;
+      opacity: 0.3; animation: fondoMovimiento 20s ease-in-out infinite alternate; z-index: -1; }
+    @keyframes fondoMovimiento { from { opacity: 0.3; transform: scale(1); } to { opacity: 0.6; transform: scale(1.1); } }
+    header { background: rgba(0, 0, 0, 0.85); display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 40px; border-bottom: 3px solid #ffcc00; position: sticky; top: 0; z-index: 10; }
+    .sim-track {
+  width: 380px;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+}
+
+.sim-logos {
+  display: inline-flex;
+  gap: 28px;
+  animation: scrollLogos 16s linear infinite;
+}
+
+.sim-logos img {
+  height: 40px;  /* ?? Más pequeño que el logo BMS */
+  filter: drop-shadow(0 0 8px #ffcc00);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.sim-logos img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 16px #ffffff);
+}
+
+@keyframes scrollLogos {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+    header img { height: 90px; }
+    nav a { color: #ffcc00; margin: 0 15px; text-decoration: none; font-size: 1.2em; letter-spacing: 1px; transition: color 0.3s; }
+    nav a:hover { color: #ffffff; }
+    .content { text-align: center; margin-top: 120px; text-shadow: 2px 2px 15px #000; animation: fadeIn 2s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    .content h1 { font-size: 3.5em; color: #ffcc00; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; }
+    .content p { font-family: 'Orbitron', sans-serif; font-size: 1.5em; color: #fff; margin-bottom: 50px; }
+    .content h2 { font-size: 2em; color: #ff0000; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    .buttons { display: flex; justify-content: center; gap: 40px; }
+    .btn { display: flex; align-items: center; gap: 10px; padding: 15px 30px; border: 2px solid #ffcc00; border-radius: 8px;
+      color: white; font-size: 1.2em; text-decoration: none; background-color: rgba(0, 0, 0, 0.6); transition: background 0.3s, transform 0.2s; }
+    .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  margin: 80px auto;
+  padding: 0 40px;
+  max-width: 1400px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(255, 204, 0, 0.6);
+  cursor: pointer;
+}
+    .btn img { height: 30px; }
+    .btn:hover { background-color: #ffcc00; color: #000; transform: scale(1.1); }
+    footer { text-align: center; padding: 30px; font-family: 'Orbitron', sans-serif; color: #ffcc00;
+      background-color: rgba(0, 0, 0, 0.85); margin-top: 120px; }
+  </style>
 </head>
 <body>
-<header>
-<img src="img/B.png" alt="BMS Logo">
-<div class="sim-track">
-<div class="sim-logos">
-<img src="img/irrra.png">
-<img src="img/rr.png">
-<img src="img/aut.png">
-<img src="img/assettocorsa.png">
-<img src="img/gr.png">
-<img src="img/irrra.png">
-<img src="img/rr.png">
-<img src="img/aut.png">
-<img src="img/assettocorsa.png">
-<img src="img/gr.png">
-</div>
-</div>
-</header>
+  <header>
+  <img src="B.png" alt="BMS Logo">
 
+  <!-- ?? Carrusel de logos de simuladores -->
+  <div class="sim-track">
+    <div class="sim-logos">
+      <img src="irrra.png" alt="iRacing">
+      <img src="rr.png" alt="RaceRoom">
+      <img src="aut.png" alt="Automobilista 2">
+      <img src="assettocorsa.png" alt="Assetto Corsa">
+      <img src="gr.png" alt="Gran Turismo">
 
+      <!-- Segunda copia para el loop infinito -->
+      <img src="irrra.png" alt="iRacing">
+      <img src="rr.png" alt="RaceRoom">
+      <img src="aut.png" alt="Automobilista 2">
+      <img src="assettocorsa.png" alt="Assetto Corsa">
+      <img src="gr.png" alt="Gran Turismo">
+    </div>
+  </div>
+
+  <nav></nav>
+</header
+   
+</div>
+     </nav>
+  </header>
+  <section class="content">
+<a href="#pilotos" class="btn-pilotos">PILOTOS DEL EQUIPO</a>
 <section class="content">
-<a href="#pilotos" class="btn-pilotos"><img src="img/B.png" class="icon-bms"> PILOTOS DEL EQUIPO</a>
+  <h1>Siente la potencia. Conquista la pista.</h1>
+  <p>Belico MotorSport — diseño agresivo y rendimiento extremo.</p>
+  <h2>Contáctanos y pruébate en nuestro equipo</h2>
+  <div class="buttons">
+    <a class="btn" href="https://www.instagram.com/belicomotorsport" target="_blank">
+      <img src="—Pngtree—instagram icon vector_8704817.png" alt="instagram"> Instagram
+    </a>
+    <a class="btn" href="https://discord.gg/kTCpK75x" target="_blank">
+      <img src="Discord-logo-2015.png" alt="Discord"> Discord
+    </a>
+    <a class="btn" href="https://www.facebook.com/profile.php?id=1518300545" target="_blank">
+      <img src="Facebook_Logo_(2019).png" alt="Facebook"> Facebook
+    </a>
+    <a class="btn" href="https://chat.whatsapp.com/GSx4hqG2vQFEKl0QUaA2Yi?mode=wwt" target="_blank">
+      <img src="whatsapp-icon-free-png.webp" alt="WhatsApp"> WhatsApp
+    </a>
+  </div>
 
-
-<h1>Siente la potencia. Conquista la pista.</h1>
-<p>Belico MotorSport — diseño agresivo y rendimiento extremo.</p>
-
-
-<h2>Contáctanos y pruébate en nuestro equipo</h2>
-
-
-<div class="buttons">
-<a class="btn" href="https://www.instagram.com/belicomotorsport" target="_blank"><img src="img/instagram.png"> Instagram</a>
-<a class="btn" href="https://discord.gg/kTCpK75x" target="_blank"><img src="img/discord.png"> Discord</a>
-<a class="btn" href="https://facebook.com" target="_blank"><img src="img/facebook.png"> Facebook</a>
-<a class="btn" href="https://chat.whatsapp.com" target="_blank"><img src="img/whatsapp.png"> WhatsApp</a>
-</div>
-
-
-<div class="gallery">
-<img src="img/1.jpg"><img src="img/2.jpg"><img src="img/3.jpg"><img src="img/4.jpg"><img src="img/5.jpg">
-</div>
+  <!-- ?? Galería moderna -->
+  <div class="gallery">
+    <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.56_167f77ef.jpg" alt="Coche 1">
+    <img src="porche.jpg" alt="Coche 2">
+    <img src="porsche 1.jpg" alt="Coche 3">
+    <img src="porsche 2.jpg" alt="Coche 4">
+    <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.55_f302a603.jpg" alt="Coche 5">
+    <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.58_c5838c2c.jpg" alt="Coche 6">
+    <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.59_bd6fb1ee.jpg" alt="Coche 7">
+    <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.58_04e1a877.jpg" alt="Coche 8">
+    <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.55_1f49c0c4.jpg" alt="Coche 1">
+  
+  </div>
 </section>
-
-
-<section id="pilotos" class="pilotos-section">
+    <section id="pilotos" class="pilotos-section">
 <h2 class="pilotos-title">PILOTOS DEL EQUIPO</h2>
 
 
@@ -61,8 +156,7 @@
 <div class="piloto-card"><img src="img/piloto5.jpg"><h3>Piloto 5</h3></div>
 </div>
 </section>
-
-
-<footer>© 2025 Bélico MotorSport — Todos los derechos reservados</footer>
+  </section>
+  <footer>© 2025 Bélico MotorSport — Todos los derechos reservados</footer>
 </body>
 </html>

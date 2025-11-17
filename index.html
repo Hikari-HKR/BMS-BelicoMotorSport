@@ -351,6 +351,26 @@
       body::after, body::before { background-attachment: scroll; }
       .sim-logos, .tarjeta-piloto, .gallery img { animation: none !important; }
 
+ /* ANIMACIÓN INFINITA PARA EL LOGO SIEMPRE (PC + CELULAR) */
+.logo-infinito {
+  animation: girarLogo 4s linear infinite !important;
+}
+
+/* Tamaño del logo en PC */
+.logo-infinito {
+  max-width: 150px;
+}
+
+/* Ajuste SOLO para celular */
+@media (max-width: 480px) {
+  .logo-infinito {
+    max-width: 90px;
+  }
+}
+
+/* La animación */
+@keyframes girarLogo {
+
     } /* end media */
 
   </style>

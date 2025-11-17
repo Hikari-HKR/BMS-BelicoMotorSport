@@ -281,116 +281,152 @@
      
    ESTILOS SOLO PARA CELULAR
 
-  @media (max-width: 768px) {
+ /* ============= RESPONIVE (MÓVIL) - para tu HTML actual ============= */
+@media (max-width: 768px) {
 
-  /* Contenedor principal */
-  .sponsored-strip {
-    width: 100% !important;
-    overflow-x: auto !important;     /* permite scroll si se llena */
-    white-space: nowrap !important;  /* evita que se rompa en varias líneas */
-    display: flex !important;
-    align-items: center !important;
-    gap: 18px !important;
-    padding: 10px 14px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* El texto no se parte */
-  .sponsored-title {
-    white-space: nowrap !important;
-    font-size: 26px !important;
-    margin: 0 !important;
-    letter-spacing: 4px !important;
-    display: inline-block !important;
-  }
-
-  /* Los logos se mantienen dentro */
-  .sponsor-logo {
-    height: 34px !important;
-    width: auto !important;
-    flex-shrink: 0 !important;       /* evita que se aplasten */
-  }
-
-  /* Fondo fibra de carbono (ya corregido) */
-  .sponsored-strip {
-    background-image: url('r.jpg') !important;
-    background-size: cover !important;
-    background-position: center !important;
-  }
-}
-
-  /* Header compacto en móvil */
+  /* Header compacto */
   header {
     flex-direction: column;
-    text-align: center;
-    padding: 10px 0;
+    align-items: center;
+    padding: 10px 12px;
+    gap: 10px;
   }
 
   header img {
-    width: 120px !important;
-    margin-bottom: 10px;
+    height: 70px; /* logo más pequeño en móvil */
+    width: auto;
+    margin: 0;
   }
 
-  /* NAV en columna */
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    padding: 0;
+  /* Carrusel de logos (usa tus clases actuales) */
+  .sim-track {
+    width: 88% !important;
+    max-width: 420px !important;
+    margin: 8px auto !important;
+    overflow: hidden;
   }
 
-  nav ul li a {
-    font-size: 18px;
-    padding: 10px;
+  /* reducir logos y frenar animación para móviles */
+  .sim-logos {
+    display: inline-flex;
+    gap: 12px !important;
+    animation: none !important; /* opcional: pausa el scroll en móvil */
+    justify-content: center !important;
   }
 
-  /* Logos pequeños en móvil */
-  .logos {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+  .sim-logos img {
+    height: 28px !important;
+    width: auto !important;
+    filter: drop-shadow(0 0 6px #ffcc00);
   }
 
-  .logos img {
-    width: 50px !important;
-    height: auto;
+  /* Contenedor sponsored */
+  .sponsored-strip {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 8px 12px !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    justify-content: flex-start !important;
+    background-size: cover !important;
   }
 
-  /* Galería en móvil → 1 columna */
-  .galeria,
+  .sponsored-title {
+    font-size: 26px !important;
+    margin-right: 12px !important;
+    white-space: nowrap !important;
+  }
+
+  .sponsor-logo {
+    height: 34px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Contenido principal */
+  .content {
+    margin-top: 60px !important;
+    padding: 0 12px !important;
+  }
+  .content h1 { font-size: 1.8rem !important; }
+  .content p { font-size: 1rem !important; }
+
+  /* Botones apilados */
+  .buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 0 12px !important;
+    align-items: stretch !important;
+  }
+  .btn, .btn-glitch {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px !important;
+    font-size: 16px !important;
+  }
+  .btn img { height: 24px !important; }
+
+  /* Galería = 1 columna */
   .gallery {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 12px;
-    padding: 0 10px;
+    display: block !important;
+    padding: 0 12px !important;
+    margin: 18px auto !important;
+    max-width: 100% !important;
   }
-
-  .galeria img,
   .gallery img {
     width: 100% !important;
-    border-radius: 10px;
+    margin-bottom: 12px !important;
+    border-radius: 10px !important;
   }
 
-  /* Tarjetas pistolas / autos / info */
-  .tarjeta-piloto,
-  .card {
-    width: 90% !important;
-    margin: 0 auto 20px auto !important;
+  /* Pilotos = tarjetas en columna (compactas) */
+  .galeria-pilotos {
+    width: 95% !important;
+    max-width: 520px !important;
+    margin: 18px auto !important;
+    flex-direction: column !important;
+    gap: 14px !important;
   }
 
-  /* Texto centrado */
+  .tarjeta-piloto {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    border-radius: 10px !important;
+  }
+
+  .tarjeta-piloto img {
+    width: 96px !important;
+    height: 96px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    border: 2px solid #d0d0d0 !important;
+  }
+
+  .tarjeta-piloto .nombre-piloto {
+    font-size: 18px !important;
+    margin: 0 !important;
+  }
+
+  /* Texto centrado y legible */
   h1, h2, h3, p {
     text-align: center !important;
   }
 
-  /* Botón responsivo */
-  .btn, .btn-glitch {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
-    font-size: 18px;
+  /* Reduce sombras/animaciones pesadas para móviles */
+  body::after, body::before {
+    background-attachment: scroll !important;
+  }
+  .tarjeta-piloto, .gallery img {
+    animation: none !important;
   }
 }
+
 
   </style>
 </head>

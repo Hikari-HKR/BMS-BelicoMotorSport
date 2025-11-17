@@ -446,6 +446,47 @@ header {
     transform: translate(2px, 1px);
   }
 }
+    /* ==========================================
+   FIX COMPLETO PARA SPONSORED + LOGOS EN MÓVIL
+   ========================================== */
+@media (max-width: 768px) {
+
+  /* Contenedor principal */
+  .sponsored-strip {
+    width: 100% !important;
+    overflow-x: auto !important;     /* permite scroll si se llena */
+    white-space: nowrap !important;  /* evita que se rompa en varias líneas */
+    display: flex !important;
+    align-items: center !important;
+    gap: 18px !important;
+    padding: 10px 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* El texto no se parte */
+  .sponsored-title {
+    white-space: nowrap !important;
+    font-size: 26px !important;
+    margin: 0 !important;
+    letter-spacing: 4px !important;
+    display: inline-block !important;
+  }
+
+  /* Los logos se mantienen dentro */
+  .sponsor-logo {
+    height: 34px !important;
+    width: auto !important;
+    flex-shrink: 0 !important;       /* evita que se aplasten */
+  }
+
+  /* Fondo fibra de carbono (ya corregido) */
+  .sponsored-strip {
+    background-image: url('r.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+}
+    
   </style>
 </head>
 <body>

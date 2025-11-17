@@ -368,49 +368,52 @@
   }
 }
 
-/* La animación */
-@keyframes girarLogo {
-
- /* CONTENEDOR DEL CARRUSEL */
-.carrusel-logos {
+/* CONTENEDOR DEL CARRUSEL */
+.sim-track {
   width: 100%;
   overflow: hidden;
-  white-space: nowrap;
   position: relative;
+  padding: 10px 0;
 }
 
-/* LOGOS EN LÍNEA */
-.carrusel-logos .logos-track {
-  display: inline-flex;
+/* LOGOS EN MOVIMIENTO */
+.sim-logos {
+  display: flex;
   align-items: center;
-  gap: 40px;
-  animation: scrollLogos 12s linear infinite !important;
+  gap: 40px;              /* Espacio entre logos */
+  animation: simMove 18s linear infinite; /* ANIMACIÓN */
 }
 
-/* LOGOS */
-.carrusel-logos img {
-  height: 80px;
+/* TAMAÑO DE LOGOS */
+.sim-logos img {
+  height: 60px;
   width: auto;
 }
 
-/* AJUSTE PARA CELULAR */
-@media (max-width: 480px) {
-  .carrusel-logos img {
-    height: 55px;
-  }
-
-  .carrusel-logos .logos-track {
-    animation: scrollLogos 12s linear infinite !important; /* fuerza animación en móvil */
-  }
-}
-
-/* ANIMACIÓN INFINITA */
-@keyframes scrollLogos {
+/* ANIMACIÓN */
+@keyframes simMove {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* hace el loop */
+  }
+}
+
+/* 📱 PARA CELULAR */
+@media (max-width: 480px) {
+
+  .sim-track {
+    overflow: hidden !important;  /* asegura movimiento */
+  }
+
+  .sim-logos {
+    animation: simMove 18s linear infinite !important; /* fuerza animación */
+    gap: 25px;
+  }
+
+  .sim-logos img {
+    height: 45px;
   }
 }
     } /* end media */

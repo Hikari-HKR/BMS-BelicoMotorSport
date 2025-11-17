@@ -408,7 +408,44 @@ header {
   .tarjeta-piloto img { width: 80px !important; height: 80px !important; }
   .btn { font-size: 16px !important; padding: 12px !important; }
 }
-    
+    /* ===========================
+   FIX TITULO SPONSORED SOLO EN MODO CELULAR
+   =========================== */
+
+@media (max-width: 768px) {
+
+  /* Tamaño correcto, sin deformarse */
+  .sponsored-title {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    letter-spacing: 4px !important;
+    margin-left: 5px !important;   /* lo mantiene un poco a la izquierda */
+    margin-right: 20px !important;
+    position: relative !important;
+    display: inline-block !important;
+    white-space: nowrap !important; /* evita que se parta */
+  }
+
+  /* Restaurar glitch limpio en móvil */
+  .sponsored-title::before,
+  .sponsored-title::after {
+    content: "SPONSORED";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: red;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .sponsored-title::before {
+    transform: translate(-2px, -1px);
+  }
+
+  .sponsored-title::after {
+    transform: translate(2px, 1px);
+  }
+}
   </style>
 </head>
 <body>

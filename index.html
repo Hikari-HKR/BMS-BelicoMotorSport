@@ -371,6 +371,48 @@
 /* La animación */
 @keyframes girarLogo {
 
+ /* CONTENEDOR DEL CARRUSEL */
+.carrusel-logos {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* LOGOS EN LÍNEA */
+.carrusel-logos .logos-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  animation: scrollLogos 12s linear infinite !important;
+}
+
+/* LOGOS */
+.carrusel-logos img {
+  height: 80px;
+  width: auto;
+}
+
+/* AJUSTE PARA CELULAR */
+@media (max-width: 480px) {
+  .carrusel-logos img {
+    height: 55px;
+  }
+
+  .carrusel-logos .logos-track {
+    animation: scrollLogos 12s linear infinite !important; /* fuerza animación en móvil */
+  }
+}
+
+/* ANIMACIÓN INFINITA */
+@keyframes scrollLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
     } /* end media */
 
   </style>

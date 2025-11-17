@@ -279,52 +279,134 @@
     filter: drop-shadow(0 0 25px red);
 }
      
-/* FORMATO VERTICAL / CELULAR */
-@media (max-width: 768px) {
 
-    body {
-        display: block;
-        overflow-x: hidden;
-    }
+/* 1) Reset pequeño para móviles */
+html, body {
+  -webkit-text-size-adjust: 100% !important;
+  font-size: 16px !important;
+}
 
-    header {
-        text-align: center;
-        padding: 20px;
-    }
+/* 2) Layout principal en columna y tamaños adaptados */
+body {
+  display: block !important;
+}
 
-    .sponsored-box {
-        width: 90%;
-        margin: 20px auto;
-        padding: 20px;
-        background-size: cover;
-    }
+/* Header: compactar para móvil */
+header {
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 12px 16px !important;
+  gap: 8px;
+}
 
-    .sponsored-box img {
-        width: 60px; /* logos más pequeños */
-        margin: 10px;
-    }
+/* Carrusel de logos: reducir y permitir overflow oculto */
+.sim-track { width: 88% !important; max-width: 420px; margin: 0 auto 8px !important; }
+.sim-logos img { height: 28px !important; gap: 14px !important; }
 
-    .glitch {
-        font-size: 28px; /* texto más grande y visible en vertical */
-        letter-spacing: 4px;
-    }
+/* Cartel (cartel / sponsored) : tamaño a 100% y centrado */
+.cartel,
+.sponsored-strip {
+  width: 95% !important;
+  max-width: 920px !important;
+  margin: 8px auto !important;
+  padding: 12px 10px !important;
+  box-sizing: border-box !important;
+  border-radius: 10px !important;
+}
 
-    .galeria-pilotos {
-        display: flex;
-        flex-direction: column; /* una imagen debajo de otra */
-        gap: 20px;
-    }
+/* Fondo fibra de carbono en la franja sponsored */
+.sponsored-strip {
+  background-image: url('r.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important; /* pegar texto hacia la izquierda */
+  gap: 12px !important;
+  padding-left: 16px !important;
+}
 
-    .tarjeta-piloto img {
-        width: 100%;
-        height: auto;
-    }
+/* Título SPONSORED: más a la izquierda + glitch activo y tamaño menor en móvil */
+.sponsored-title {
+  font-size: 28px !important;
+  margin-right: 24px !important;
+  letter-spacing: 4px !important;
+}
 
-    button, .btn {
-        width: 90%;
-        font-size: 22px;
-        padding: 18px;
-    }
+/* Logos dentro de la franja: más pequeños en móvil */
+.sponsor-logo {
+  height: 36px !important;
+  width: auto !important;
+}
+
+/* Galería: una columna (vertical) */
+.gallery {
+  display: block !important;
+  padding: 0 12px !important;
+  margin: 18px auto 28px !important;
+}
+
+.gallery img {
+  width: 100% !important;
+  margin-bottom: 12px !important;
+  border-radius: 10px !important;
+}
+
+/* Pilotos: tarjetas apiladas verticalmente */
+.galeria-pilotos {
+  width: 95% !important;
+  max-width: 520px !important;
+  margin: 18px auto !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+.tarjeta-piloto {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 12px !important;
+  align-items: center !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+}
+
+.tarjeta-piloto img {
+  width: 96px !important;
+  height: 96px !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+}
+
+/* Botones: full width en móvil */
+.buttons {
+  flex-direction: column !important;
+  gap: 12px !important;
+  padding: 0 12px !important;
+}
+.btn {
+  width: calc(100% - 24px) !important;
+  justify-content: center !important;
+  padding: 14px !important;
+  font-size: 18px !important;
+}
+
+/* Glitch tweak para móvil (más suave) */
+.sponsored-title::before,
+.sponsored-title::after {
+  content: "SPONSORED" !important;
+  left: 0 !important;
+  top: 0 !important;
+  opacity: 0.6 !important;
+}
+
+/* Pequeña media query extra para pantallas muy pequeñas */
+@media (max-width: 420px) {
+  .sponsored-title { font-size: 22px !important; letter-spacing: 2px !important; }
+  .sponsor-logo { height: 30px !important; }
+  .tarjeta-piloto img { width: 80px !important; height: 80px !important; }
+  .btn { font-size: 16px !important; padding: 12px !important; }
 }
     
   </style>

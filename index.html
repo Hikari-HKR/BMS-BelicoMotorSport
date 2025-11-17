@@ -279,7 +279,54 @@
     filter: drop-shadow(0 0 25px red);
 }
      
+/* FORMATO VERTICAL / CELULAR */
+@media (max-width: 768px) {
 
+    body {
+        display: block;
+        overflow-x: hidden;
+    }
+
+    header {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .sponsored-box {
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+        background-size: cover;
+    }
+
+    .sponsored-box img {
+        width: 60px; /* logos más pequeños */
+        margin: 10px;
+    }
+
+    .glitch {
+        font-size: 28px; /* texto más grande y visible en vertical */
+        letter-spacing: 4px;
+    }
+
+    .galeria-pilotos {
+        display: flex;
+        flex-direction: column; /* una imagen debajo de otra */
+        gap: 20px;
+    }
+
+    .tarjeta-piloto img {
+        width: 100%;
+        height: auto;
+    }
+
+    button, .btn {
+        width: 90%;
+        font-size: 22px;
+        padding: 18px;
+    }
+}
+    
   </style>
 </head>
 <body>

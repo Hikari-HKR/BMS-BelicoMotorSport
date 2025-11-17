@@ -1,334 +1,432 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
-
-  <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- vital para móvil -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bélico MotorSport</title>
-  <link rel="icon" type="image/png" href="B.png">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
+<link rel="icon" type="image/png" href="B.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <style>
-    /* =======================
-       FUENTES
-       ======================= */
-    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700&display=swap');
-
-    :root {
-      --gold: #ffcc00;
-      --red: #ff0000;
-      --bg: #000;
-    }
-
-    /* =======================
-       RESET + BASE
-       ======================= */
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Anton', sans-serif;
-      color: #fff;
-      background: var(--bg);
-      overflow-x: hidden;
-      -webkit-text-size-adjust: 100%;
-      box-sizing: border-box;
-    }
-
-    /* =======================
-       FONDOS CAPAS (ANTES / DESPUÉS)
-       ======================= */
-    /* Asegúrate de que los archivos de imagen existan en la misma carpeta
-       o sustituye la ruta: url('ruta/tuimagen.jpg') */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url('benoit-fraikin-6l6XOeYS6BY-unsplash.jpg') center/cover no-repeat;
-      filter: brightness(0.4);
-      z-index: -2;
-      pointer-events: none;
-      transition: opacity .4s ease;
-    }
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
+ @import url('https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700&display=swap');
+    body { margin: 0; padding: 0; font-family: 'Anton', sans-serif; color: #fff; background: #000; overflow-x: hidden; }
+    body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: url('benoit-fraikin-6l6XOeYS6BY-unsplash.jpg') center/cover no-repeat; filter: brightness(0.4); z-index: -2; }
+    body::after { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: url('167485-porsche_911_rsr_2020-el_porsche_911_gt3_rsr-porsche_911_carrera_rsr-porsche_911_2020-porsche-x750.jpg') center/cover no-repeat;
-      opacity: 0.32;
-      animation: fondoMovimiento 20s ease-in-out infinite alternate;
-      z-index: -1;
-      background-attachment: fixed;
-      pointer-events: none;
-    }
-
-    @keyframes fondoMovimiento {
-      from { opacity: 0.3; transform: scale(1); }
-      to   { opacity: 0.6; transform: scale(1.05); }
-    }
-
-    /* =======================
-       HEADER / NAV / LOGOS
-       ======================= */
-    header {
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      border-bottom: 3px solid var(--gold);
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      gap: 12px;
-    }
-    header img { height: 90px; width: auto; display:block; }
-
+      opacity: 0.3; animation: fondoMovimiento 20s ease-in-out infinite alternate; z-index: -1; }
+    @keyframes fondoMovimiento { from { opacity: 0.3; transform: scale(1); } to { opacity: 0.6; transform: scale(1.1); } }
+    header { background: rgba(0, 0, 0, 0.85); display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 40px; border-bottom: 3px solid #ffcc00; position: sticky; top: 0; z-index: 10; }
     .sim-track {
-      width: 380px;
-      overflow: hidden;
-      white-space: nowrap;
-      margin: 0 auto;
-    }
+  width: 380px;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+}
 
-    .sim-logos {
-      display: inline-flex;
-      gap: 28px;
-      align-items: center;
-      animation: scrollLogos 16s linear infinite;
-    }
+.sim-logos {
+  display: inline-flex;
+  gap: 28px;
+  animation: scrollLogos 16s linear infinite;
+}
 
-    .sim-logos img {
-      height: 40px;
-      filter: drop-shadow(0 0 8px var(--gold));
-      transition: transform .2s, filter .2s;
-      display:block;
-    }
-    .sim-logos img:hover { transform: scale(1.2); filter: drop-shadow(0 0 16px #fff); }
+.sim-logos img {
+  height: 40px;  /* ?? Más pequeño que el logo BMS */
+  filter: drop-shadow(0 0 8px #ffcc00);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
 
-    @keyframes scrollLogos {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
+.sim-logos img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 16px #ffffff);
+}
 
-    nav a {
-      color: var(--gold);
-      margin: 0 15px;
-      text-decoration: none;
-      font-size: 1.05rem;
-      letter-spacing: 1px;
-      transition: color .2s;
-    }
-    nav a:hover { color: #fff; }
-
-    /* =======================
-       CONTENIDO PRINCIPAL
-       ======================= */
-    .content {
-      text-align: center;
-      margin-top: 120px;
-      text-shadow: 2px 2px 15px #000;
-      animation: fadeIn 1s ease;
-      padding: 0 12px;
-    }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-    .content h1 { font-size: 3.5em; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 18px; }
-    .content p  { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 20px; }
-    .content h2 { font-size: 1.6rem; color: var(--red); letter-spacing: 1px; margin-bottom: 8px; }
-
-    .buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 20px; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 15px 28px;
-      border: 2px solid var(--gold);
-      border-radius: 8px;
-      color: #fff;
-      font-size: 1rem;
-      text-decoration: none;
-      background-color: rgba(0,0,0,0.6);
-      transition: background .2s, transform .12s;
-    }
-    .btn img { height: 28px; display:inline-block; }
-    .btn:hover { background: var(--gold); color: #000; transform: scale(1.05); }
-
-    /* =======================
-       GALERÍA
-       ======================= */
+@keyframes scrollLogos {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+    header img { height: 90px; }
+    nav a { color: #ffcc00; margin: 0 15px; text-decoration: none; font-size: 1.2em; letter-spacing: 1px; transition: color 0.3s; }
+    nav a:hover { color: #ffffff; }
+    .content { text-align: center; margin-top: 120px; text-shadow: 2px 2px 15px #000; animation: fadeIn 2s ease-in-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    .content h1 { font-size: 3.5em; color: #ffcc00; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; }
+    .content p { font-family: 'Orbitron', sans-serif; font-size: 1.5em; color: #fff; margin-bottom: 50px; }
+    .content h2 { font-size: 2em; color: #ff0000; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+    .buttons { display: flex; justify-content: center; gap: 40px; }
+    .btn { display: flex; align-items: center; gap: 10px; padding: 15px 30px; border: 2px solid #ffcc00; border-radius: 8px;
+      color: white; font-size: 1.2em; text-decoration: none; background-color: rgba(0, 0, 0, 0.6); transition: background 0.3s, transform 0.2s; }
     .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 15px;
-      margin: 80px auto;
-      padding: 0 40px;
-      max-width: 1400px;
-    }
-    .gallery img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-      transition: transform .35s, box-shadow .35s;
-      display:block;
-    }
-    .gallery img:hover {
-      transform: scale(1.08);
-      box-shadow: 0 8px 25px rgba(255,204,0,0.45);
-      cursor: pointer;
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  margin: 80px auto;
+  padding: 0 40px;
+  max-width: 1400px;
+}
 
-    /* =======================
-       PILOTOS (TARJETAS)
-       ======================= */
-    .galeria-pilotos {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin: 0 auto;
-    }
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
 
-    .tarjeta-piloto {
-      width: 220px;
-      padding: 12px;
-      border-radius: 15px;
-      background: linear-gradient(145deg, #700000, #b00000);
-      border: 3px solid #bfbfbf;
-      outline: 3px solid rgba(255,255,255,0.2);
-      animation: glow-rojo-metal 2s infinite ease-in-out;
-      transition: transform .3s ease;
-      text-align: center;
-    }
+.gallery img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(255, 204, 0, 0.6);
+  cursor: pointer;
+}
+    .btn img { height: 30px; }
+    .btn:hover { background-color: #ffcc00; color: #000; transform: scale(1.1); }
+    footer { text-align: center; padding: 30px; font-family: 'Orbitron', sans-serif; color: #ffcc00;
+      background-color: rgba(0, 0, 0, 0.85); margin-top: 120px; }
+  .pilotos-section {
+    margin-top: 40px;
+    text-align: center;
+}
 
-    .tarjeta-piloto img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      aspect-ratio: 2 / 3;
-      border-radius: 12px;
-      border: 3px solid #d0d0d0;
-      box-shadow: 0 0 15px rgba(255,0,0,0.2);
-      background: #000;
-      display:block;
-    }
-
-    .tarjeta-piloto:hover {
-      transform: scale(1.15);
-      outline: 4px solid #fff;
-      border: 3px solid var(--red);
-      box-shadow: 0 0 100px var(--red);
-    }
-
-    @keyframes glow-rojo-metal {
-      0% { box-shadow: 0 0 20px rgba(255,0,0,0.66); }
-      50% { box-shadow: 0 0 60px rgba(255,0,0,1); }
-      100% { box-shadow: 0 0 20px rgba(255,0,0,0.66); }
-    }
-
-    /* =======================
-       BTN GLITCH + SPONSORED
-       ======================= */
     .btn-glitch {
-      position: relative;
-      display: inline-block;
-      padding: 18px 40px;
-      font-size: 28px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      color: var(--red);
-      background: transparent;
-      border: 3px solid var(--red);
-      cursor: pointer;
+  position: relative;
+  display: inline-block;
+  padding: 18px 40px;
+  margin: 20px 0;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #ff0000;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  border: 3px solid #ff0000;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.2s ease-in-out;
+  filter: drop-shadow(0 0 12px red);
+}
+
+.btn-glitch:hover {
+  background: #ff0000;
+  color: black;
+  filter: drop-shadow(0 0 25px red);
+}
+
+.btn-glitch::before,
+.btn-glitch::after {
+  content: "Pilotos del equipo";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 3px solid transparent;
+  color: #ff0000;
+  clip-path: inset(0 0 0 0);
+  opacity: 0.8;
+  mix-blend-mode: difference;
+}
+
+.btn-glitch:hover::before {
+  animation: glitch1 0.2s infinite linear;
+}
+
+.btn-glitch:hover::after {
+  animation: glitch2 0.2s infinite linear;
+}
+/* Vibración tipo motor encendido */
+@keyframes motor-vibe {
+    0% { transform: translate(0, 0); }
+    40% { transform: translate(0.5px, -0.5px); }
+    60% { transform: translate(-0.5px, 0.5px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Glow agresivo rojo + plateado */
+@keyframes glow-rojo-metal {
+    0% {
+        box-shadow:
+            0 0 20px #ff0000aa,
+            0 0 40px #ff000066,
+            0 0 20px #ffffff33 inset;
     }
-    .btn-glitch:hover { background: var(--red); color: #000; }
-
-    .sponsored-strip {
-      background-image: url('ee.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      padding: 20px;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 18px;
-      border-top: 3px solid var(--red);
-      border-bottom: 3px solid var(--red);
+    50% {
+        box-shadow:
+            0 0 60px #ff0000ff,
+            0 0 100px #ff1a1aff,
+            0 0 70px #ffffff77 inset,
+            0 0 30px #ff0000 inset;
     }
-    .sponsored-title {
-      font-size: 38px;
-      font-weight: 900;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 5px;
-      text-shadow: 0 0 10px var(--red);
+    100% {
+        box-shadow:
+            0 0 20px #ff0000aa,
+            0 0 40px #ff000066,
+            0 0 20px #ffffff33 inset;
     }
-    .sponsor-logo { height: 60px; }
+}
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-family: 'Orbitron', sans-serif;
-      color: var(--gold);
-      background-color: rgba(0,0,0,0.85);
-      margin-top: 120px;
+/* Galería centrada */
+.galeria-pilotos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+/* Tarjeta estilo carta agresiva */
+.tarjeta-piloto {
+    width: 220px;              /* Porte tipo carta */
+    padding: 12px;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #700000, #b00000);
+    border: 3px solid #bfbfbf; /* Plateado */
+    outline: 3px solid #ffffff33; /* Glow metálico suave */
+    animation: glow-rojo-metal 2s infinite ease-in-out,
+               motor-vibe 0.12s infinite linear;
+    transition: transform 0.3s ease;
+}
+
+/* Hover brutal */
+.tarjeta-piloto:hover {
+    transform: scale(1.15);
+    outline: 4px solid #ffffff;
+    border: 3px solid #ff0000;
+    box-shadow:
+        0 0 100px #ff0000,
+        0 0 160px #ff1a1a,
+        0 0 80px #ffffffaa inset;
+}
+
+/* Imagen estilo carta de baraja */
+.tarjeta-piloto img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    aspect-ratio: 2 / 3;
+    border-radius: 12px;
+    border: 3px solid #d0d0d0;
+    box-shadow: 0 0 15px #ff0000aa;
+    background: #000;
+ }
+    
+ /* --- SPONSORED STRIP FULL FIXED VERSION --- */
+  .cartel img.logo {
+    width: 90px;     /* antes era mucho más grande */
+    height: auto;
+    margin-bottom: 10px;
+}
+.sponsored-strip {
+    background-image: url('ee.jpg');  /* fibra de carbono */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 22px;
+
+    border-top: 3px solid red;
+    border-bottom: 3px solid red;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+@keyframes sponsoredGlow {
+    from {
+        box-shadow: 0 0 18px #ff000088, 0 0 35px #ff000044 inset;
     }
+    to {
+        box-shadow: 0 0 40px #ff1a1a, 0 0 80px #ff1a1a inset;
+    }
+}
 
-    /* =======================
-       MOBILE (solo dentro de media query)
-       ======================= */
-    @media (max-width: 768px) {
+.sponsored-title {
+    font-size: 38px;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    text-shadow:
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 35px #ff1a1a;
+    animation: sponsoredPulse 1s infinite alternate;
+}
 
-      /* header */
-      header {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 12px;
-        gap: 8px;
-      }
-      header img { height: 72px; }
+@keyframes sponsoredPulse {
+    from { transform: scale(1); opacity: 0.8; }
+    to { transform: scale(1.1); opacity: 1; }
+}
 
-      /* logos strip: pausa animación y reduce tamaño */
-      .sim-track { width: 88%; max-width:420px; margin: 8px auto; overflow:hidden; }
-      .sim-logos { gap: 12px; animation: none; justify-content:center; }
-      .sim-logos img { height: 28px; }
+.sponsor-logo {
+    height: 60px;
+    filter: drop-shadow(0 0 10px white);
+    transition: transform .3s ease, filter .3s ease;
+}
 
-      /* sponsored */
-      .sponsored-strip { padding: 8px 12px; justify-content:flex-start; overflow-x:auto; white-space:nowrap; }
-      .sponsored-title { font-size: 26px; margin-right:12px; white-space:nowrap; }
-      .sponsor-logo { height: 34px; flex-shrink: 0; }
+.sponsor-logo:hover {
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 25px red);
+}
+     
+   ESTILOS SOLO PARA CELULAR
 
-      /* content sizing */
-      .content { margin-top: 48px; padding: 0 12px; }
-      .content h1 { font-size: 1.8rem; }
-      .content p { font-size: 1rem; }
+ /* ============= RESPONIVE (MÓVIL) - para tu HTML actual ============= */
+@media (max-width: 768px) {
 
-      /* botones verticales */
-      .buttons { flex-direction: column; gap: 12px; padding: 0 12px; align-items: stretch; }
-      .btn, .btn-glitch { width: 100%; font-size: 16px; padding: 12px; justify-content: center; }
+  /* Header compacto */
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 12px;
+    gap: 10px;
+  }
 
-      /* galería = 1 columna */
-      .gallery { display: block; padding: 0 12px; margin: 18px auto; max-width: 100%; }
-      .gallery img { width: 100%; margin-bottom: 12px; border-radius: 10px; }
+  header img {
+    height: 70px; /* logo más pequeño en móvil */
+    width: auto;
+    margin: 0;
+  }
 
-      /* pilotos: tarjetas en fila (mini + texto) */
-      .galeria-pilotos { width: 95%; max-width: 520px; margin: 18px auto; flex-direction: column; gap: 14px; }
-      .tarjeta-piloto {
-        display: flex; flex-direction: row; gap: 12px; align-items: center; width: 100%; padding: 10px; border-radius: 10px;
-      }
-      .tarjeta-piloto img { width: 96px; height: 96px; object-fit: cover; border-radius: 8px; }
+  /* Carrusel de logos (usa tus clases actuales) */
+  .sim-track {
+    width: 88% !important;
+    max-width: 420px !important;
+    margin: 8px auto !important;
+    overflow: hidden;
+  }
 
-      /* suavizar animaciones y background attachment */
-      body::after, body::before { background-attachment: scroll; }
-      .sim-logos, .tarjeta-piloto, .gallery img { animation: none !important; }
+  /* reducir logos y frenar animación para móviles */
+  .sim-logos {
+    display: inline-flex;
+    gap: 12px !important;
+    animation: none !important; /* opcional: pausa el scroll en móvil */
+    justify-content: center !important;
+  }
 
-    } /* end media */
+  .sim-logos img {
+    height: 28px !important;
+    width: auto !important;
+    filter: drop-shadow(0 0 6px #ffcc00);
+  }
 
-  </style>
+  /* Contenedor sponsored */
+  .sponsored-strip {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 8px 12px !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    justify-content: flex-start !important;
+    background-size: cover !important;
+  }
+
+  .sponsored-title {
+    font-size: 26px !important;
+    margin-right: 12px !important;
+    white-space: nowrap !important;
+  }
+
+  .sponsor-logo {
+    height: 34px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Contenido principal */
+  .content {
+    margin-top: 60px !important;
+    padding: 0 12px !important;
+  }
+  .content h1 { font-size: 1.8rem !important; }
+  .content p { font-size: 1rem !important; }
+
+  /* Botones apilados */
+  .buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 0 12px !important;
+    align-items: stretch !important;
+  }
+  .btn, .btn-glitch {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px !important;
+    font-size: 16px !important;
+  }
+  .btn img { height: 24px !important; }
+
+  /* Galería = 1 columna */
+  .gallery {
+    display: block !important;
+    padding: 0 12px !important;
+    margin: 18px auto !important;
+    max-width: 100% !important;
+  }
+  .gallery img {
+    width: 100% !important;
+    margin-bottom: 12px !important;
+    border-radius: 10px !important;
+  }
+
+  /* Pilotos = tarjetas en columna (compactas) */
+  .galeria-pilotos {
+    width: 95% !important;
+    max-width: 520px !important;
+    margin: 18px auto !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+  }
+
+  .tarjeta-piloto {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    border-radius: 10px !important;
+  }
+
+  .tarjeta-piloto img {
+    width: 96px !important;
+    height: 96px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+    border: 2px solid #d0d0d0 !important;
+  }
+
+  .tarjeta-piloto .nombre-piloto {
+    font-size: 18px !important;
+    margin: 0 !important;
+  }
+
+  /* Texto centrado y legible */
+  h1, h2, h3, p {
+    text-align: center !important;
+  }
+
+  /* Reduce sombras/animaciones pesadas para móviles */
+  body::after, body::before {
+    background-attachment: scroll !important;
+  }
+  .tarjeta-piloto, .gallery img {
+    animation: none !important;
+  }
+}
+</style>
 </head>
 
 <body>

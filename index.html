@@ -280,7 +280,6 @@
 }
      
    ESTILOS SOLO PARA CELULAR
-   ============================ */
 @media (max-width: 768px) {
 
   /* Header compacto en móvil */
@@ -291,7 +290,7 @@
   }
 
   header img {
-    width: 120px !important; /* Ajusta si quieres más pequeño */
+    width: 120px !important;
     margin-bottom: 10px;
   }
 
@@ -321,33 +320,34 @@
   }
 
   /* Galería en móvil → 1 columna */
-  .galeria {
-    display: grid;
-    grid-template-columns: 1fr;
+  .galeria,
+  .gallery {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
     gap: 12px;
     padding: 0 10px;
   }
 
-  .galeria img {
+  .galeria img,
+  .gallery img {
     width: 100% !important;
     border-radius: 10px;
   }
 
-  /* Tarjetas (pilotos, autos, info) → en columna */
+  /* Tarjetas pistolas / autos / info */
+  .tarjeta-piloto,
   .card {
     width: 90% !important;
-    margin: auto;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto !important;
   }
 
-  /* Texto más legible en móvil */
+  /* Texto centrado */
   h1, h2, h3, p {
-    text-align: center;
+    text-align: center !important;
   }
 
   /* Botón responsivo */
-  .btn {
-    display: block;
+  .btn, .btn-glitch {
     width: 100%;
     text-align: center;
     padding: 12px;

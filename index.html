@@ -211,50 +211,61 @@
     border: 3px solid #d0d0d0;
     box-shadow: 0 0 15px #ff0000aa;
     background: #000;
-  /* --- SPONSORED STRIP --- */
+ }
+    
+ /* --- SPONSORED STRIP FULL FIXED VERSION --- */
 .sponsored-strip {
     width: 100%;
-    padding: 12px 0;
-    background: linear-gradient(90deg, #5a0000, #b30000, #5a0000);
+    padding: 18px 0;
+    background: linear-gradient(90deg, #8a0000, #ff0000, #8a0000);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    border-top: 2px solid #ffcc00;
-    border-bottom: 2px solid #ffcc00;
-    animation: glowSponsor 2s infinite alternate;
-    margin-top: 0; /* Para que quede pegado al header */
+    gap: 45px;
+    border-bottom: 3px solid #ffcc00;
+    border-top: 3px solid #ffcc00;
+    position: relative;
+    z-index: 9;
+    animation: sponsoredGlow 1.5s infinite alternate ease-in-out;
+    box-shadow: 0 0 30px #ff0000;
 }
 
-@keyframes glowSponsor {
-    from { box-shadow: 0 0 18px red; }
-    to   { box-shadow: 0 0 38px red; }
+@keyframes sponsoredGlow {
+    from {
+        box-shadow: 0 0 18px #ff000088, 0 0 35px #ff000044 inset;
+    }
+    to {
+        box-shadow: 0 0 40px #ff1a1a, 0 0 80px #ff1a1a inset;
+    }
 }
 
 .sponsored-title {
-    font-size: 32px;
-    color: #ffffff;
-    letter-spacing: 4px;
+    font-size: 38px;
     font-weight: 900;
+    color: white;
     text-transform: uppercase;
-    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
-    animation: pulseSponsor 1.2s infinite alternate;
+    letter-spacing: 5px;
+    text-shadow:
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 35px #ff1a1a;
+    animation: sponsoredPulse 1s infinite alternate;
 }
 
-@keyframes pulseSponsor {
+@keyframes sponsoredPulse {
     from { transform: scale(1); opacity: 0.8; }
-    to   { transform: scale(1.08); opacity: 1; }
+    to { transform: scale(1.1); opacity: 1; }
 }
 
 .sponsor-logo {
-    height: 55px;
-    filter: drop-shadow(0 0 10px #ffffffaa);
-    transition: transform .2s ease, filter .2s ease;
+    height: 60px;
+    filter: drop-shadow(0 0 10px white);
+    transition: transform .3s ease, filter .3s ease;
 }
 
 .sponsor-logo:hover {
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 18px #ff0000);
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 25px red);
 }
 
 

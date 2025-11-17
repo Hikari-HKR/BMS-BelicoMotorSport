@@ -211,6 +211,51 @@
     border: 3px solid #d0d0d0;
     box-shadow: 0 0 15px #ff0000aa;
     background: #000;
+  /* --- SPONSORED STRIP --- */
+.sponsored-strip {
+    width: 100%;
+    padding: 12px 0;
+    background: linear-gradient(90deg, #5a0000, #b30000, #5a0000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    border-top: 2px solid #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+    animation: glowSponsor 2s infinite alternate;
+    margin-top: 0; /* Para que quede pegado al header */
+}
+
+@keyframes glowSponsor {
+    from { box-shadow: 0 0 18px red; }
+    to   { box-shadow: 0 0 38px red; }
+}
+
+.sponsored-title {
+    font-size: 32px;
+    color: #ffffff;
+    letter-spacing: 4px;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    animation: pulseSponsor 1.2s infinite alternate;
+}
+
+@keyframes pulseSponsor {
+    from { transform: scale(1); opacity: 0.8; }
+    to   { transform: scale(1.08); opacity: 1; }
+}
+
+.sponsor-logo {
+    height: 55px;
+    filter: drop-shadow(0 0 10px #ffffffaa);
+    transition: transform .2s ease, filter .2s ease;
+}
+
+.sponsor-logo:hover {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 18px #ff0000);
+}
 
 
   </style>
@@ -240,6 +285,13 @@
   <nav></nav>
 
   </header>
+  <div class="sponsored-strip">
+    <span class="sponsored-title">SPONSORED</span>
+
+    <img src="44.png" class="sponsor-logo" alt="Dinamyc Competición">
+
+    <img src="HKR.png" class="sponsor-logo" alt="HKR">
+</div>
 <section class="content">
 
 <a href="#piloto-casco" class="btn-glitch">Pilotos del equipo</a>

@@ -416,6 +416,67 @@
     height: 45px;
   }
 }
+ ody> donde quieras que aparezca la carta:
+<!-- Carta Campeón Andes Racing -->
+<div class="card-floating">
+  <div class="champ-card">
+    <h2>Campeón Andes Racing</h2>
+    <img src="TU-IMAGEN.jpg" alt="Piloto Campeón">
+  </div>
+</div>
+
+
+⚠️ IMPORTANTE:
+Reemplaza TU-IMAGEN.jpg por el nombre real del archivo de la foto, por ejemplo:
+piloto-bms.jpg
+(si la foto está en tu carpeta principal).
+
+2️⃣ Pega ESTE CSS en tu <style> (completo):
+/* Carta flotante lateral */
+.card-floating {
+  position: fixed;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  z-index: 9999;
+  animation: floatUpDown 4.5s ease-in-out infinite;
+}
+
+/* Estilo de la carta */
+.champ-card {
+  width: 260px;
+  background: linear-gradient(180deg, #000000dc, #111);
+  padding: 18px;
+  border-radius: 20px;
+  text-align: center;
+  border: 3px solid #ff0000;
+  box-shadow: 0 0 25px #ff0000aa, 0 0 50px #ff000044;
+  backdrop-filter: blur(4px);
+}
+
+.champ-card h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
+  color: #ff0000;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px red;
+}
+
+.champ-card img {
+  width: 100%;
+  border-radius: 12px;
+  border: 2px solid #ff0000;
+  box-shadow: 0 0 20px #ff000044;
+}
+
+/* Animación imponente flotando */
+@keyframes floatUpDown {
+  0% { transform: translateY(-50%) translateY(0px); }
+  50% { transform: translateY(-50%) translateY(-18px); }
+  100% { transform: translateY(-50%) translateY(0px); }
+}
     } /* end media */
 
   </style>
@@ -455,6 +516,12 @@
     <img src="HKR.png" class="sponsor-logo" alt="HKR">
 </div>
 <section class="content">
+<!-- Carta Campeón Andes Racing -->
+<div class="card-floating">
+  <div class="champ-card">
+    <h2>Campeón Andes Racing</h2>
+    <img src="TU-IMAGEN.jpg" alt="Piloto Campeón">
+  </div>
 
 <a href="#piloto-casco" class="btn-glitch">Pilotos del equipo</a>
   <h1>Siente la potencia. Conquista la pista.</h1>

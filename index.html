@@ -417,17 +417,17 @@
   }
 }
  
-/* Carta flotante lateral */
+/* --- CARTA FLOTANTE GARANTIZADA --- */
 .card-floating {
-  position: fixed;
-  top: 50%;
-  left: 10px;
+  position: fixed !important;
+  top: 50% !important;
+  left: 10px !important;
   transform: translateY(-50%);
-  z-index: 9999;
-  animation: floatUpDown 4.5s ease-in-out infinite;
+  z-index: 999999;
+  animation: floatUpDown 3s ease-in-out infinite;
+  pointer-events: none;
 }
 
-/* Estilo de la carta */
 .champ-card {
   width: 260px;
   background: linear-gradient(180deg, #000000dc, #111);
@@ -435,32 +435,57 @@
   border-radius: 20px;
   text-align: center;
   border: 3px solid #ff0000;
-  box-shadow: 0 0 25px #ff0000aa, 0 0 50px #ff000044;
-  backdrop-filter: blur(4px);
-}
-
-.champ-card h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 22px;
-  color: #ff0000;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-shadow: 0 0 10px red;
+  box-shadow: 0 0 25px #ff0000aa;
 }
 
 .champ-card img {
   width: 100%;
   border-radius: 12px;
   border: 2px solid #ff0000;
-  box-shadow: 0 0 20px #ff000044;
 }
 
-/* Animación imponente flotando */
+.champ-card h2 {
+  font-family: 'Orbitron', sans-serif;
+  color: #ff0000;
+  font-size: 22px;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px red;
+}
+
+/* --- ANIMACIÓN REAL --- */
 @keyframes floatUpDown {
-  0% { transform: translateY(-50%) translateY(0px); }
-  50% { transform: translateY(-50%) translateY(-18px); }
-  100% { transform: translateY(-50%) translateY(0px); }
+  0% {
+    transform: translateY(-50%) translateY(0);
+  }
+  50% {
+    transform: translateY(-50%) translateY(-20px);
+  }
+  100% {
+    transform: translateY(-50%) translateY(0);
+  }
+}
+🔥 HTML que debe acompañarlo
+html
+Copiar código
+<div class="card-floating">
+  <div class="champ-card">
+    <h2>Campeón Andes Racing</h2>
+    <img src="TU-IMAGEN.jpg">
+  </div>
+</div>
+🧪 PRUEBA RÁPIDA
+Para confirmar si tu animación sí corre:
+
+Pon esto SOLO en tu CSS:
+css
+Copiar código
+body {
+  animation: test 2s infinite;
+}
+
+@keyframes test {
+  from { opacity: 1; }
+  to { opacity: 0.5; }
 }
     } /* end media */
 

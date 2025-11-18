@@ -239,7 +239,46 @@
   from { box-shadow: 0 0 20px #ff0000; }
   to { box-shadow: 0 0 50px #ff1a1a; }
 }
+tro del <style>
+/* 🔥 TÍTULO AGRESIVO DIEGO FERNANDEZ 🔥 */
+.banner-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin: 40px auto;
+  flex-wrap: wrap;
+}
 
+.titulo-agresivo {
+  font-size: 46px;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 3px;
+  color: #ff0000;
+  text-shadow: 
+    0 0 10px #ff0000,
+    0 0 25px #ff1a1a,
+    0 0 45px #ff3333;
+  animation: pulsoRojo 1s infinite alternate;
+  text-transform: uppercase;
+}
+
+@keyframes pulsoRojo {
+  from { text-shadow: 0 0 10px #ff0000; transform: scale(1); }
+  to   { text-shadow: 0 0 30px #ff1a1a; transform: scale(1.07); }
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+  .titulo-agresivo {
+    font-size: 34px;
+    text-align: center;
+    margin-top: 12px;
+  }
+  .banner-wrapper {
+    flex-direction: column;
+  }
+}
     /* ----------------------
        MOBILE (MEDIA QUERIES)
        ---------------------- */
@@ -314,6 +353,20 @@
   <section class="content">
 
     <a href="#piloto-casco" class="btn-glitch">Pilotos del equipo</a>
+   <!-- 🔥 BANNER + TÍTULO AGRESIVO 🔥 -->
+<div class="banner-wrapper">
+
+  <!-- Banner estilo carta -->
+  <div class="banner-campeon">
+    <img src="campeon2025.png" alt="Campeón Andes Racing 2025">
+  </div>
+
+  <!-- Título agresivo -->
+  <div class="titulo-agresivo">
+    Diego<br>Fernandez
+  </div>
+
+</div>
 
     <div class="banner-campeon">
   <img src="campeon2025.png" alt="Campeón Andes Racing 2025">

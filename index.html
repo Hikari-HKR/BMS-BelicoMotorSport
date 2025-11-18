@@ -281,6 +281,15 @@
       .tarjeta-piloto { display:flex; flex-direction:row; gap:12px; align-items:center; width:100%; padding:10px; border-radius:10px; }
       .tarjeta-piloto img { width:96px; height:96px; object-fit:cover; border-radius:8px; }
 
+  .tarjeta-piloto,
+  .tarjeta-piloto:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+
+    transition: none !important;
+  }
+}
       /* ajustar banner para móvil */
       .banner-campeon { max-width: 96%; margin: 24px auto; border-radius:12px; }
       .banner-titulo { font-size: 20px; bottom: 12px; padding: 8px 12px; white-space: normal; left: 50%; transform: translateX(-50%); }

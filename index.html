@@ -1,453 +1,272 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- vital para móvil -->
   <title>Bélico MotorSport</title>
-<link rel="icon" type="image/png" href="B.png">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="B.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
   <style>
-   /* Contenedor de logos */
-.logos-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;        /* separación entre logos */
-  padding: 10px;
-  flex-wrap: wrap;  /* permite que bajen en pantalla pequeña */
-}
+    /* ----------------------
+       STYLES GLOBALES
+       ---------------------- */
+    /* Contenedor de logos */
+    .logos-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;        /* separación entre logos */
+      padding: 10px;
+      flex-wrap: wrap;  /* permite que bajen en pantalla pequeña */
+    }
 
-/* Tamaño de logos en PC */
-.logos-header img {
-  max-width: 140px;
-  height: auto;
-}
+    /* Tamaño de logos en PC */
+    .logos-header img { max-width: 140px; height: auto; }
 
-/* Ajuste especial para CELULAR */
-@media (max-width: 480px) {
-  .logos-header img {
-    max-width: 80px;   /* tamaño reducido para móvil */
-  }
-}
- @import url('https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700&display=swap');
-    body { margin: 0; padding: 0; font-family: 'Anton', sans-serif; color: #fff; background: #000; overflow-x: hidden; }
-    body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: url('benoit-fraikin-6l6XOeYS6BY-unsplash.jpg') center/cover no-repeat; filter: brightness(0.4); z-index: -2; }
-    body::after { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Anton', sans-serif;
+      color: #fff;
+      background: #000;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('benoit-fraikin-6l6XOeYS6BY-unsplash.jpg') center/cover no-repeat;
+      filter: brightness(0.4);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: url('167485-porsche_911_rsr_2020-el_porsche_911_gt3_rsr-porsche_911_carrera_rsr-porsche_911_2020-porsche-x750.jpg') center/cover no-repeat;
-      opacity: 0.3; animation: fondoMovimiento 20s ease-in-out infinite alternate; z-index: -1; }
+      opacity: 0.3;
+      animation: fondoMovimiento 20s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
     @keyframes fondoMovimiento { from { opacity: 0.3; transform: scale(1); } to { opacity: 0.6; transform: scale(1.1); } }
-    header { background: rgba(0, 0, 0, 0.85); display: flex; justify-content: space-between; align-items: center;
-      padding: 15px 40px; border-bottom: 3px solid #ffcc00; position: sticky; top: 0; z-index: 10; }
+
+    header {
+      background: rgba(0,0,0,0.85);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 40px;
+      border-bottom:3px solid #ffcc00;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+
     .sim-track {
-  width: 380px;
-  overflow: hidden;
-  white-space: nowrap;
-  margin: 0 auto;
-}
+      width: 380px;
+      overflow: hidden;
+      white-space: nowrap;
+      margin: 0 auto;
+    }
 
-.sim-logos {
-  display: inline-flex;
-  gap: 28px;
-  animation: scrollLogos 16s linear infinite;
-}
+    .sim-logos {
+      display: inline-flex;
+      gap: 28px;
+      animation: scrollLogos 16s linear infinite;
+    }
 
-.sim-logos img {
-  height: 40px;  /* ?? Más pequeño que el logo BMS */
-  filter: drop-shadow(0 0 8px #ffcc00);
-  transition: transform 0.2s ease, filter 0.2s ease;
-}
+    .sim-logos img {
+      height: 40px;
+      filter: drop-shadow(0 0 8px #ffcc00);
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
 
-.sim-logos img:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 16px #ffffff);
-}
+    .sim-logos img:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 16px #ffffff);
+    }
 
-@keyframes scrollLogos {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
+    @keyframes scrollLogos { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
     header img { height: 90px; }
     nav a { color: #ffcc00; margin: 0 15px; text-decoration: none; font-size: 1.2em; letter-spacing: 1px; transition: color 0.3s; }
     nav a:hover { color: #ffffff; }
+
     .content { text-align: center; margin-top: 120px; text-shadow: 2px 2px 15px #000; animation: fadeIn 2s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(50px);} to { opacity:1; transform: translateY(0);} }
+
     .content h1 { font-size: 3.5em; color: #ffcc00; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px; }
     .content p { font-family: 'Orbitron', sans-serif; font-size: 1.5em; color: #fff; margin-bottom: 50px; }
     .content h2 { font-size: 2em; color: #ff0000; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
-    .buttons { display: flex; justify-content: center; gap: 40px; }
-    .btn { display: flex; align-items: center; gap: 10px; padding: 15px 30px; border: 2px solid #ffcc00; border-radius: 8px;
-      color: white; font-size: 1.2em; text-decoration: none; background-color: rgba(0, 0, 0, 0.6); transition: background 0.3s, transform 0.2s; }
+
+    .buttons { display:flex; justify-content:center; gap:40px; }
+    .btn { display:flex; align-items:center; gap:10px; padding:15px 30px; border:2px solid #ffcc00; border-radius:8px; color:white; font-size:1.2em; text-decoration:none; background-color: rgba(0,0,0,0.6); transition: background 0.3s, transform 0.2s; }
+    .btn img { height:30px; }
+    .btn:hover { background-color:#ffcc00; color:#000; transform: scale(1.1); }
+
     .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 15px;
-  margin: 80px auto;
-  padding: 0 40px;
-  max-width: 1400px;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 25px rgba(255, 204, 0, 0.6);
-  cursor: pointer;
-}
-    .btn img { height: 30px; }
-    .btn:hover { background-color: #ffcc00; color: #000; transform: scale(1.1); }
-    footer { text-align: center; padding: 30px; font-family: 'Orbitron', sans-serif; color: #ffcc00;
-      background-color: rgba(0, 0, 0, 0.85); margin-top: 120px; }
-  .pilotos-section {
-    margin-top: 40px;
-    text-align: center;
-}
-
-    .btn-glitch {
-  position: relative;
-  display: inline-block;
-  padding: 18px 40px;
-  margin: 20px 0;
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #ff0000;
-  text-transform: uppercase;
-  text-decoration: none;
-  background: transparent;
-  border: 3px solid #ff0000;
-  cursor: pointer;
-  overflow: hidden;
-  transition: 0.2s ease-in-out;
-  filter: drop-shadow(0 0 12px red);
-}
-
-.btn-glitch:hover {
-  background: #ff0000;
-  color: black;
-  filter: drop-shadow(0 0 25px red);
-}
-
-.btn-glitch::before,
-.btn-glitch::after {
-  content: "Pilotos del equipo";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: 3px solid transparent;
-  color: #ff0000;
-  clip-path: inset(0 0 0 0);
-  opacity: 0.8;
-  mix-blend-mode: difference;
-}
-
-.btn-glitch:hover::before {
-  animation: glitch1 0.2s infinite linear;
-}
-
-.btn-glitch:hover::after {
-  animation: glitch2 0.2s infinite linear;
-}
-/* Vibración tipo motor encendido */
-@keyframes motor-vibe {
-    0% { transform: translate(0, 0); }
-    40% { transform: translate(0.5px, -0.5px); }
-    60% { transform: translate(-0.5px, 0.5px); }
-    100% { transform: translate(0, 0); }
-}
-
-/* Glow agresivo rojo + plateado */
-@keyframes glow-rojo-metal {
-    0% {
-        box-shadow:
-            0 0 20px #ff0000aa,
-            0 0 40px #ff000066,
-            0 0 20px #ffffff33 inset;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+      margin: 80px auto;
+      padding: 0 40px;
+      max-width: 1400px;
     }
-    50% {
-        box-shadow:
-            0 0 60px #ff0000ff,
-            0 0 100px #ff1a1aff,
-            0 0 70px #ffffff77 inset,
-            0 0 30px #ff0000 inset;
+
+    .gallery img { width:100%; border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); transition: transform 0.4s ease, box-shadow 0.4s ease; }
+    .gallery img:hover { transform: scale(1.08); box-shadow: 0 8px 25px rgba(255,204,0,0.6); cursor:pointer; }
+
+    footer { text-align:center; padding:30px; font-family:'Orbitron', sans-serif; color:#ffcc00; background-color: rgba(0,0,0,0.85); margin-top:120px; }
+
+    /* Pilotos / tarjetas */
+    .galeria-pilotos { width:100%; display:flex; justify-content:center; align-items:center; gap:30px; flex-wrap:wrap; margin:0 auto; }
+
+    .tarjeta-piloto {
+      width:220px;
+      padding:12px;
+      border-radius:15px;
+      background: linear-gradient(145deg, #700000, #b00000);
+      border: 3px solid #bfbfbf;
+      outline: 3px solid #ffffff33;
+      animation: glow-rojo-metal 2s infinite ease-in-out, motor-vibe 0.12s infinite linear;
+      transition: transform 0.3s ease;
     }
-    100% {
-        box-shadow:
-            0 0 20px #ff0000aa,
-            0 0 40px #ff000066,
-            0 0 20px #ffffff33 inset;
+    .tarjeta-piloto:hover {
+      transform: scale(1.15);
+      outline: 4px solid #ffffff;
+      border: 3px solid #ff0000;
+      box-shadow: 0 0 100px #ff0000, 0 0 160px #ff1a1a, 0 0 80px #ffffffaa inset;
     }
-}
-
-/* Galería centrada */
-.galeria-pilotos {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin: 0 auto;
-}
-
-/* Tarjeta estilo carta agresiva */
-.tarjeta-piloto {
-    width: 220px;              /* Porte tipo carta */
-    padding: 12px;
-    border-radius: 15px;
-    background: linear-gradient(145deg, #700000, #b00000);
-    border: 3px solid #bfbfbf; /* Plateado */
-    outline: 3px solid #ffffff33; /* Glow metálico suave */
-    animation: glow-rojo-metal 2s infinite ease-in-out,
-               motor-vibe 0.12s infinite linear;
-    transition: transform 0.3s ease;
-}
-
-/* Hover brutal */
-.tarjeta-piloto:hover {
-    transform: scale(1.15);
-    outline: 4px solid #ffffff;
-    border: 3px solid #ff0000;
-    box-shadow:
-        0 0 100px #ff0000,
-        0 0 160px #ff1a1a,
-        0 0 80px #ffffffaa inset;
-}
-
-/* Imagen estilo carta de baraja */
-.tarjeta-piloto img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    aspect-ratio: 2 / 3;
-    border-radius: 12px;
-    border: 3px solid #d0d0d0;
-    box-shadow: 0 0 15px #ff0000aa;
-    background: #000;
- }
-    
- /* --- SPONSORED STRIP FULL FIXED VERSION --- */
-  .cartel img.logo {
-    width: 90px;     /* antes era mucho más grande */
-    height: auto;
-    margin-bottom: 10px;
-}
-.sponsored-strip {
-    background-image: url('ee.jpg');  /* fibra de carbono */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    color: white;
-    letter-spacing: 2px;
-    font-size: 22px;
-
-    border-top: 3px solid red;
-    border-bottom: 3px solid red;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-@keyframes sponsoredGlow {
-    from {
-        box-shadow: 0 0 18px #ff000088, 0 0 35px #ff000044 inset;
+    .tarjeta-piloto img {
+      width:100%;
+      height:300px;
+      object-fit:cover;
+      aspect-ratio: 2 / 3;
+      border-radius:12px;
+      border:3px solid #d0d0d0;
+      box-shadow:0 0 15px #ff0000aa;
+      background:#000;
     }
-    to {
-        box-shadow: 0 0 40px #ff1a1a, 0 0 80px #ff1a1a inset;
+
+    @keyframes motor-vibe {
+      0% { transform: translate(0,0); } 40% { transform: translate(0.5px,-0.5px); } 60% { transform: translate(-0.5px,0.5px); } 100% { transform: translate(0,0); }
     }
-}
+    @keyframes glow-rojo-metal {
+      0% { box-shadow: 0 0 20px #ff0000aa, 0 0 40px #ff000066, 0 0 20px #ffffff33 inset; }
+      50% { box-shadow: 0 0 60px #ff0000ff, 0 0 100px #ff1a1aff, 0 0 70px #ffffff77 inset, 0 0 30px #ff0000 inset; }
+      100% { box-shadow: 0 0 20px #ff0000aa, 0 0 40px #ff000066, 0 0 20px #ffffff33 inset; }
+    }
 
-.sponsored-title {
-    font-size: 38px;
-    font-weight: 900;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    text-shadow:
-        0 0 10px #ff0000,
-        0 0 20px #ff0000,
-        0 0 35px #ff1a1a;
-    animation: sponsoredPulse 1s infinite alternate;
-}
+    /* Sponsored strip */
+    .cartel img.logo { width:90px; height:auto; margin-bottom:10px; }
+    .sponsored-strip {
+      background-image: url('ee.jpg');
+      background-size: cover;
+      background-position: center;
+      padding:20px;
+      text-align:center;
+      font-weight:bold;
+      color:white;
+      letter-spacing:2px;
+      font-size:22px;
+      border-top:3px solid red;
+      border-bottom:3px solid red;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+    }
+    .sponsored-title {
+      font-size:38px; font-weight:900; color:white; text-transform:uppercase; letter-spacing:5px;
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 35px #ff1a1a;
+      animation: sponsoredPulse 1s infinite alternate;
+    }
+    @keyframes sponsoredPulse { from{ transform:scale(1); opacity:0.8 } to { transform:scale(1.1); opacity:1 } }
+    .sponsor-logo { height:60px; filter: drop-shadow(0 0 10px white); transition: transform .3s ease, filter .3s ease; }
+    .sponsor-logo:hover { transform: scale(1.25); filter: drop-shadow(0 0 25px red); }
 
-@keyframes sponsoredPulse {
-    from { transform: scale(1); opacity: 0.8; }
-    to { transform: scale(1.1); opacity: 1; }
-}
+    /* ----------------------
+       BANNER CAMPEÓN (GLOBAL — fuera de media queries)
+       ---------------------- */
+    .banner-campeon {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 40px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 35px #ff0000aa;
+      border: 2px solid rgba(255,255,255,0.06);
+      background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.35));
+    }
 
-.sponsor-logo {
-    height: 60px;
-    filter: drop-shadow(0 0 10px white);
-    transition: transform .3s ease, filter .3s ease;
-}
+    .banner-campeon img {
+      width: 100%;
+      display: block;
+      filter: brightness(0.85) contrast(1.1);
+      vertical-align: middle;
+    }
 
-.sponsor-logo:hover {
-    transform: scale(1.25);
-    filter: drop-shadow(0 0 25px red);
-}
-   .banner-campeon {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin: 40px auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 0 35px #ff0000aa;
-}
+    .banner-titulo {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-family: 'Anton', sans-serif;
+      font-size: 42px;
+      text-shadow: 0 0 15px #ff0000, 0 0 25px #ff0000;
+      letter-spacing: 2px;
+      padding: 10px 20px;
+      background: rgba(0,0,0,0.45);
+      border-radius: 12px;
+      white-space: nowrap;
+    }
 
-.banner-campeon img {
-  width: 100%;
-  display: block;
-  filter: brightness(0.8) contrast(1.2);
-}
+    /* ----------------------
+       MOBILE (MEDIA QUERIES)
+       ---------------------- */
+    @media (max-width: 768px) {
+      header { flex-direction: column; align-items:center; padding: 10px 12px; gap:8px; }
+      header img { height:72px; }
 
-.banner-titulo {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  font-family: 'Anton', sans-serif;
-  font-size: 42px;
-  text-shadow: 0 0 15px #ff0000, 0 0 25px #ff0000;
-  letter-spacing: 2px;
-  padding: 10px 20px;
-  background: rgba(0,0,0,0.35);
-  border-radius: 12px;
-}
-  /* ESTILOS SOLO PARA CELULAR */
+      .sim-track { width:88%; max-width:420px; margin:8px auto; overflow:hidden; }
+      .sim-logos { gap:12px; justify-content:center; }
+      .sim-logos img { height:28px; }
 
-/* =======================
-   MOBILE (solo dentro de media query)
-   ======================= */
-@media (max-width: 768px) {
+      .sponsored-strip { padding:8px 12px; justify-content:flex-start; overflow-x:auto; white-space:nowrap; }
+      .sponsored-title { font-size:26px; margin-right:12px; white-space:nowrap; }
+      .sponsor-logo { height:34px; flex-shrink:0; }
 
+      .content { margin-top:48px; padding:0 12px; }
+      .content h1 { font-size:1.8rem; }
+      .content p { font-size:1rem; }
 
-      /* header */
-      header {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 12px;
-        gap: 8px;
-      }
-      header img { height: 72px; }
+      .buttons { flex-direction:column; gap:12px; padding:0 12px; align-items:stretch; }
+      .btn, .btn-glitch { width:100%; font-size:16px; padding:12px; justify-content:center; }
 
-      /* logos strip: pausa animación y reduce tamaño */
-      .sim-track { width: 88%; max-width:420px; margin: 8px auto; overflow:hidden; }
-      .sim-logos { gap: 12px; animation:linear infinite !important; /* ✅ SE MUEVE */; justify-content:center; }
-      .sim-logos img { height: 28px; }
+      .gallery { display:block; padding:0 12px; margin:18px auto; max-width:100%; }
+      .gallery img { width:100%; margin-bottom:12px; border-radius:10px; }
 
-      /* sponsored */
-      .sponsored-strip { padding: 8px 12px; justify-content:flex-start; overflow-x:auto; white-space:nowrap; }
-      .sponsored-title { font-size: 26px; margin-right:12px; white-space:nowrap; }
-      .sponsor-logo { height: 34px; flex-shrink: 0; }
+      .galeria-pilotos { width:95%; max-width:520px; margin:18px auto; flex-direction:column; gap:14px; }
+      .tarjeta-piloto { display:flex; flex-direction:row; gap:12px; align-items:center; width:100%; padding:10px; border-radius:10px; }
+      .tarjeta-piloto img { width:96px; height:96px; object-fit:cover; border-radius:8px; }
 
-      /* content sizing */
-      .content { margin-top: 48px; padding: 0 12px; }
-      .content h1 { font-size: 1.8rem; }
-      .content p { font-size: 1rem; }
-
-      /* botones verticales */
-      .buttons { flex-direction: column; gap: 12px; padding: 0 12px; align-items: stretch; }
-      .btn, .btn-glitch { width: 100%; font-size: 16px; padding: 12px; justify-content: center; }
-
-      /* galería = 1 columna */
-      .gallery { display: block; padding: 0 12px; margin: 18px auto; max-width: 100%; }
-      .gallery img { width: 100%; margin-bottom: 12px; border-radius: 10px; }
-
-      /* pilotos: tarjetas en fila (mini + texto) */
-      .galeria-pilotos { width: 95%; max-width: 520px; margin: 18px auto; flex-direction: column; gap: 14px; }
-      .tarjeta-piloto {
-        display: flex; flex-direction: row; gap: 12px; align-items: center; width: 100%; padding: 10px; border-radius: 10px;
-      }
-      .tarjeta-piloto img { width: 96px; height: 96px; object-fit: cover; border-radius: 8px; }
-
-      /* suavizar animaciones y background attachment */
-      body::after, body::before { background-attachment: scroll; }
-      .sim-logos, .tarjeta-piloto, .gallery img { animation: none !important; }
-
- /* ANIMACIÓN INFINITA PARA EL LOGO SIEMPRE (PC + CELULAR) */
-.logo-infinito {
-  animation: girarLogo 4s linear infinite !important;
-}
-
-/* Tamaño del logo en PC */
-.logo-infinito {
-  max-width: 150px;
-}
-
-/* Ajuste SOLO para celular */
-@media (max-width: 480px) {
-  .logo-infinito {
-    max-width: 90px;
-  }
-}
-
-/* CONTENEDOR DEL CARRUSEL */
-.sim-track {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  padding: 10px 0;
-}
-
-/* LOGOS EN MOVIMIENTO */
-.sim-logos {
-  display: flex;
-  align-items: center;
-  gap: 40px;              /* Espacio entre logos */
-  animation: simMove 18s linear infinite; /* ANIMACIÓN */
-}
-
-/* TAMAÑO DE LOGOS */
-.sim-logos img {
-  height: 60px;
-  width: auto;
-}
-
-/* ANIMACIÓN */
-@keyframes simMove {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%); /* hace el loop */
-  }
-}
-
-/* 📱 PARA CELULAR */
-@media (max-width: 480px) {
-
-  .sim-track {
-    overflow: hidden !important;  /* asegura movimiento */
-  }
-
-  .sim-logos {
-    animation: simMove 18s linear infinite !important; /* fuerza animación */
-    gap: 25px;
-  }
-
-  .sim-logos img {
-    height: 45px;
-  }
-}
- 
- } /* end media */
+      /* ajustar banner para móvil */
+      .banner-campeon { max-width: 96%; margin: 24px auto; border-radius:12px; }
+      .banner-titulo { font-size: 20px; bottom: 12px; padding: 8px 12px; white-space: normal; left: 50%; transform: translateX(-50%); }
+    }
 
   </style>
 </head>
@@ -455,163 +274,102 @@
 <body>
 
   <header>
-  <img src="B.png" alt="BMS Logo">
+    <img src="B.png" alt="BMS Logo" class="logo-infinito">
 
-  <!-- ?? Carrusel de logos de simuladores -->
-  <div class="sim-track">
-    <div class="sim-logos">
-      <img src="rr.png" alt="Raceroom">
-      <img src="ir.png" alt="iRacing">
-      <img src="aut.png" alt="Automobilista 2">
-      <img src="assettocorsa.png" alt="Assetto Corsa">
-      <img src="gr.png" alt="Gran Turismo">
+    <!-- Carrusel de logos de simuladores -->
+    <div class="sim-track">
+      <div class="sim-logos">
+        <img src="rr.png" alt="Raceroom">
+        <img src="ir.png" alt="iRacing">
+        <img src="aut.png" alt="Automobilista 2">
+        <img src="assettocorsa.png" alt="Assetto Corsa">
+        <img src="gr.png" alt="Gran Turismo">
 
-      <!-- Segunda copia para el loop infinito -->
-      <img src="ir.png" alt="iRacing">
-      <img src="rr.png" alt="RaceRoom">
-      <img src="aut.png" alt="Automobilista 2">
-      <img src="assettocorsa.png" alt="Assetto Corsa">
-      <img src="gr.png" alt="Gran Turismo">
+        <!-- Segunda copia para el loop infinito -->
+        <img src="ir.png" alt="iRacing">
+        <img src="rr.png" alt="RaceRoom">
+        <img src="aut.png" alt="Automobilista 2">
+        <img src="assettocorsa.png" alt="Assetto Corsa">
+        <img src="gr.png" alt="Gran Turismo">
+      </div>
     </div>
-  </div>
 
-  <nav></nav>
-
+    <nav></nav>
   </header>
-  
+
   <div class="sponsored-strip">
     <span class="sponsored-title">SPONSORED</span>
-
     <img src="44.png" class="sponsor-logo" alt="Dinamyc Competición">
-
     <img src="HKR.png" class="sponsor-logo" alt="HKR">
-</div>
-<section class="content">
- </div>
-<a href="#piloto-casco" class="btn-glitch">Pilotos del equipo</a>
- <div class="honor-wrapper">
-
-    <div class="banner-campeon">
-    <img src="16.png" alt="Campeón 2025">
-    <div class="banner-titulo">
-      CAMPEÓN ANDES RACING 2025
-    </div>
-  </div>
-  <h1>Siente la potencia. Conquista la pista.</h1>
-  <p>Belico MotorSport — diseño agresivo y rendimiento extremo.</p>
-  <h2>Contáctanos y pruébate en nuestro equipo</h2>
-  <div class="buttons">
-    <a class="btn" href="https://www.instagram.com/belicomotorsport" target="_blank">
-      <img src="—Pngtree—instagram icon vector_8704817.png" alt="instagram"> Instagram
-    </a>
-    <a class="btn" href="https://discord.gg/kTCpK75x" target="_blank">
-      <img src="Discord-logo-2015.png" alt="Discord"> Discord
-    </a>
-    <a class="btn" href="https://www.facebook.com/profile.php?id=1518300545" target="_blank">
-      <img src="Facebook_Logo_(2019).png" alt="Facebook"> Facebook
-    </a>
-    <a class="btn" href="https://chat.whatsapp.com/GSx4hqG2vQFEKl0QUaA2Yi?mode=wwt" target="_blank">
-      <img src="whatsapp-icon-free-png.webp" alt="WhatsApp"> WhatsApp
-    </a>
   </div>
 
-  <!-- ?? Galería moderna -->
-    <div class="gallery">   
-    <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.56_167f77ef.jpg" alt="Coche 1">
-    <img src="porche.jpg" alt="Coche 2">
-    <img src="porsche 1.jpg" alt="Coche 3">
-    <img src="porsche 2.jpg" alt="Coche 4">
-    <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.55_f302a603.jpg" alt="Coche 5">
-    <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.58_c5838c2c.jpg" alt="Coche 6">
-    <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.59_bd6fb1ee.jpg" alt="Coche 7">
-    <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.58_04e1a877.jpg" alt="Coche 8">
-    <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.55_1f49c0c4.jpg" alt="Coche 1">
-  </div>
+  <section class="content">
 
-   <div id="galeria-pilotos">
-    <img src="casco.webp" id="piloto-casco" 
-         alt="Casco rojo" 
-         style="
-            width:120px;
-            height:auto;
-            display:block;
-            margin:30px auto;
-            cursor:pointer;
-            filter: drop-shadow(0 0 10px red);
-         ">
-</div>
-    
-   <div class="galeria-pilotos">
+    <a href="#piloto-casco" class="btn-glitch">Pilotos del equipo</a>
 
-    <div class="tarjeta-piloto">
-        <img src="14.jpg" alt="Piloto 14">
-        <h3 class="nombre-piloto">Daniel Carlosama</h3>
+    <div class="honor-wrapper">
+      <!-- BANNER IM PONENTE insertado -->
+      <div class="banner-campeon">
+        <img src="16.png" alt="Campeón 2025">
+        <div class="banner-titulo">CAMPEÓN ANDES RACING 2025</div>
+      </div>
     </div>
 
-    <div class="tarjeta-piloto">
-        <img src="Al.jpg" alt="Piloto Al">
-        <h3 class="nombre-piloto">Alvaro Espinosa</h3>
+    <h1>Siente la potencia. Conquista la pista.</h1>
+    <p>Belico MotorSport — diseño agresivo y rendimiento extremo.</p>
+    <h2>Contáctanos y pruébate en nuestro equipo</h2>
+
+    <div class="buttons">
+      <a class="btn" href="https://www.instagram.com/belicomotorsport" target="_blank">
+        <img src="—Pngtree—instagram icon vector_8704817.png" alt="instagram"> Instagram
+      </a>
+      <a class="btn" href="https://discord.gg/kTCpK75x" target="_blank">
+        <img src="Discord-logo-2015.png" alt="Discord"> Discord
+      </a>
+      <a class="btn" href="https://www.facebook.com/profile.php?id=1518300545" target="_blank">
+        <img src="Facebook_Logo_(2019).png" alt="Facebook"> Facebook
+      </a>
+      <a class="btn" href="https://chat.whatsapp.com/GSx4hqG2vQFEKl0QUaA2Yi?mode=wwt" target="_blank">
+        <img src="whatsapp-icon-free-png.webp" alt="WhatsApp"> WhatsApp
+      </a>
     </div>
 
-    <div class="tarjeta-piloto">
-        <img src="33.jpg" alt="Piloto 33">
-        <h3 class="nombre-piloto">Christian Correa</h3>
+    <!-- Galería -->
+    <div class="gallery">
+      <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.56_167f77ef.jpg" alt="Coche 1">
+      <img src="porche.jpg" alt="Coche 2">
+      <img src="porsche 1.jpg" alt="Coche 3">
+      <img src="porsche 2.jpg" alt="Coche 4">
+      <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.55_f302a603.jpg" alt="Coche 5">
+      <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.58_c5838c2c.jpg" alt="Coche 6">
+      <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.59_bd6fb1ee.jpg" alt="Coche 7">
+      <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.58_04e1a877.jpg" alt="Coche 8">
+      <img src="Imagen de WhatsApp 2025-11-13 a las 14.40.55_1f49c0c4.jpg" alt="Coche 9">
     </div>
 
-    <div class="tarjeta-piloto">
-        <img src="88.png" alt="Piloto 88">
-        <h3 class="nombre-piloto">David Montahuano</h3>
+    <div id="galeria-pilotos">
+      <img src="casco.webp" id="piloto-casco" alt="Casco rojo" style="width:120px;height:auto;display:block;margin:30px auto;cursor:pointer;filter: drop-shadow(0 0 10px red);">
     </div>
 
-      <div class="tarjeta-piloto">
-        <img src="9.png" alt="Piloto 9">
-        <h3 class="nombre-piloto">Alexis Montesdeoca</h3>
-    </div> 
-     
-  <div class="tarjeta-piloto">
-        <img src="6.png" alt="Piloto 6">
-        <h3 class="nombre-piloto">Jonathan Medina</h3>
-    </div> 
-
-      <div class="tarjeta-piloto">
-        <img src="1.jpg" alt="Piloto 1">
-        <h3 class="nombre-piloto">Luis Donoso</h3>
+    <div class="galeria-pilotos">
+      <div class="tarjeta-piloto"><img src="14.jpg" alt="Piloto 14"><h3 class="nombre-piloto">Daniel Carlosama</h3></div>
+      <div class="tarjeta-piloto"><img src="Al.jpg" alt="Piloto Al"><h3 class="nombre-piloto">Alvaro Espinosa</h3></div>
+      <div class="tarjeta-piloto"><img src="33.jpg" alt="Piloto 33"><h3 class="nombre-piloto">Christian Correa</h3></div>
+      <div class="tarjeta-piloto"><img src="88.png" alt="Piloto 88"><h3 class="nombre-piloto">David Montahuano</h3></div>
+      <div class="tarjeta-piloto"><img src="9.png" alt="Piloto 9"><h3 class="nombre-piloto">Alexis Montesdeoca</h3></div>
+      <div class="tarjeta-piloto"><img src="6.png" alt="Piloto 6"><h3 class="nombre-piloto">Jonathan Medina</h3></div>
+      <div class="tarjeta-piloto"><img src="1.jpg" alt="Piloto 1"><h3 class="nombre-piloto">Luis Donoso</h3></div>
+      <div class="tarjeta-piloto"><img src="11.jpg" alt="Piloto 11"><h3 class="nombre-piloto">Pablo Teran</h3></div>
+      <div class="tarjeta-piloto"><img src="5.png" alt="Piloto 5"><h3 class="nombre-piloto">Cristian Olmedo</h3></div>
+      <div class="tarjeta-piloto"><img src="7.png" alt="Piloto 7"><h3 class="nombre-piloto">Jose Meneses</h3></div>
+      <div class="tarjeta-piloto"><img src="44.jpg" alt="Piloto 44"><h3 class="nombre-piloto">Victor Guerrero</h3></div>
+      <div class="tarjeta-piloto"><img src="10.jpg" alt="Piloto 10"><h3 class="nombre-piloto">Josue Flores</h3></div>
+      <div class="tarjeta-piloto"><img src="13.jpg" alt="Piloto 13"><h3 class="nombre-piloto">Diego Fernandez</h3></div>
     </div>
-    
-     <div class="tarjeta-piloto">
-        <img src="11.jpg" alt="Piloto 11">
-        <h3 class="nombre-piloto">Pablo Teran</h3>
-    </div> 
-     
-     <div class="tarjeta-piloto">
-        <img src="5.png" alt="Piloto 5">
-        <h3 class="nombre-piloto">Cristian Olmedo</h3>
-    </div>
-
-       <div class="tarjeta-piloto">
-        <img src="7.png" alt="Piloto 7">
-        <h3 class="nombre-piloto">Jose Meneses</h3>
-    </div> 
-
-       <div class="tarjeta-piloto">
-        <img src="44.jpg" alt="Piloto 44">
-        <h3 class="nombre-piloto">Victor Guerrero</h3>
-    </div> 
-
-      <div class="tarjeta-piloto">
-        <img src="10.jpg" alt="Piloto 10">
-        <h3 class="nombre-piloto">Josue Flores</h3>
-    </div> 
-
-     <div class="tarjeta-piloto">
-        <img src="13.jpg" alt="Piloto 10">
-        <h3 class="nombre-piloto">Diego Fernandez</h3>
-    </div> 
-
-</div>
-  </div>
 
   </section>
+
   <footer>© 2025 Bélico MotorSport — Todos los derechos reservados</footer>
+
 </body>
 </html>

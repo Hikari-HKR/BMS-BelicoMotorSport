@@ -416,53 +416,86 @@
     height: 45px;
   }
 }
- 
-/* --- CARTA FLOTANTE ANDES RACING --- */
-.card-floating {
-    position: fixed;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 9999;
-    pointer-events: none;
-    animation: floatUpDown 3s ease-in-out infinite;
-}
-
-.champ-card {
-    width: 230px;
-    padding: 15px;
-    background: linear-gradient(45deg, #ff0000, #8a0000);
-    border-radius: 15px;
-    box-shadow: 0 0 25px rgba(255,0,0,0.6);
+ /* --- VITRINA DE HONOR IMPONENTE --- */
+.vitrina-honor {
+    width: 280px;
+    padding: 18px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #000000, #530000, #b00000);
+    border: 4px solid #ffffffaa;
+    box-shadow: 
+        0 0 15px #ff0000aa,
+        0 0 45px #ff1a1a,
+        0 0 80px #ff000055 inset;
+    animation: honorGlow 2.2s infinite ease-in-out alternate,
+               honorShake 0.14s infinite linear;
     text-align: center;
-    font-family: 'Anton', sans-serif;
-    color: white;
-    border: 3px solid white;
+    margin: 20px auto;
 }
 
-.champ-card img {
+.vitrina-honor img {
     width: 100%;
     border-radius: 12px;
-    margin-top: 10px;
+    border: 3px solid white;
+    box-shadow: 0 0 20px red;
 }
 
-.champ-card h2 {
-    margin: 0;
-    font-size: 26px;
-    letter-spacing: 1px;
+/* Título eléctrico */
+.vitrina-titulo {
+    font-size: 32px;
+    font-weight: 900;
+    color: #ff0000;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    text-shadow:
+        0 0 8px #ff0000,
+        0 0 18px #ff1a1a,
+        0 0 30px #ffffffaa;
+    position: relative;
+    animation: glitchHonor 0.8s infinite linear;
 }
 
-/* Animación */
-@keyframes floatUpDown {
-    0% { transform: translateY(-50%) translateY(-10px); }
-    50% { transform: translateY(-50%) translateY(10px); }
-    100% { transform: translateY(-50%) translateY(-10px); }
+/* Animación glitch */
+@keyframes glitchHonor {
+    0% { text-shadow: 2px 2px red, -2px -2px white; }
+    20% { text-shadow: -2px 2px #ff0000, 2px -2px white; }
+    40% { text-shadow: 2px -2px red, -2px 2px white; }
+    60% { text-shadow: -2px -2px #ff0000, 2px 2px white; }
+    100% { text-shadow: 2px 2px red, -2px -2px white; }
 }
 
-/* Evitar que el modo móvil borre la animación */
-.card-floating {
-    animation: floatUpDown 3s ease-in-out infinite !important;
-}    } /* end media */
+/* Glow intensificado */
+@keyframes honorGlow {
+    0% { box-shadow: 0 0 20px #ff000080; }
+    100% { box-shadow: 0 0 55px #ff1a1a, 0 0 100px #ff000055 inset; }
+}
+
+/* Vibración estilo motor */
+@keyframes honorShake {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(1px,-1px); }
+    100% { transform: translate(0,0); }
+}
+
+/* ACOMODAR AL LADO DEL BOTÓN */
+.honor-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* 📱 RESPONSIVE */
+@media(max-width: 768px) {
+    .honor-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .vitrina-honor { width: 90%; }
+}
+ } /* end media */
 
   </style>
 </head>

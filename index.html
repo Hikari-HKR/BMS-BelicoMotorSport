@@ -300,6 +300,36 @@
     transform: scale(1.25);
     filter: drop-shadow(0 0 25px red);
 }
+   .banner-campeon {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 35px #ff0000aa;
+}
+
+.banner-campeon img {
+  width: 100%;
+  display: block;
+  filter: brightness(0.8) contrast(1.2);
+}
+
+.banner-titulo {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-family: 'Anton', sans-serif;
+  font-size: 42px;
+  text-shadow: 0 0 15px #ff0000, 0 0 25px #ff0000;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.35);
+  border-radius: 12px;
+}
   /* ESTILOS SOLO PARA CELULAR */
 
 /* =======================
@@ -416,37 +446,7 @@
     height: 45px;
   }
 }
- /* --- PEGA AQUÍ EL CSS DEL BANNER --- */
-    .banner-campeon {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      margin: 40px auto;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 0 35px #ff0000aa;
-    }
-
-    .banner-campeon img {
-      width: 100%;
-      display: block;
-      filter: brightness(0.8) contrast(1.2);
-    }
-
-    .banner-titulo {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #fff;
-      font-family: 'Anton', sans-serif;
-      font-size: 42px;
-      text-shadow: 0 0 15px #ff0000, 0 0 25px #ff0000;
-      letter-spacing: 2px;
-      padding: 10px 20px;
-      background: rgba(0,0,0,0.35);
-      border-radius: 12px;
-    }
+ 
  } /* end media */
 
   </style>

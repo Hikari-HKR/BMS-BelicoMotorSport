@@ -131,45 +131,78 @@
 
     footer { text-align:center; padding:30px; font-family:'Orbitron', sans-serif; color:#ffcc00; background-color: rgba(0,0,0,0.85); margin-top:120px; }
 
-    /* Pilotos / tarjetas */
-    .galeria-pilotos { width:100%; display:flex; justify-content:center; align-items:center; gap:30px; flex-wrap:wrap; margin:0 auto; }
+   /* ---------- Tarjetas de piloto: estilo corregido ---------- */
 
-    .tarjeta-piloto {
-      width:220px;
-      padding:12px;
-      border-radius:15px;
-      background: linear-gradient(145deg, #700000, #b00000);
-      border: 3px solid #bfbfbf;
-      outline: 3px solid #ffffff33;
-      animation: glow-rojo-metal 2s infinite ease-in-out, motor-vibe 0.12s infinite linear;
-      transition: transform 0.3s ease;
-    }
-    .tarjeta-piloto:hover {
-      transform: scale(1.15);
-      outline: 4px solid #ffffff;
-      border: 3px solid #ff0000;
-      box-shadow: 0 0 100px #ff0000, 0 0 160px #ff1a1a, 0 0 80px #ffffffaa inset;
-    }
-    .tarjeta-piloto img {
-      width:100%;
-      height:300px;
-      object-fit:cover;
-      aspect-ratio: 2 / 3;
-      border-radius:12px;
-      border:3px solid #d0d0d0;
-      box-shadow:0 0 15px #ff0000aa;
-      background:#000;
-    }
+/* caja modelo más predecible */
+* { box-sizing: border-box; }
 
-    @keyframes motor-vibe {
-      0% { transform: translate(0,0); } 40% { transform: translate(0.5px,-0.5px); } 60% { transform: translate(-0.5px,0.5px); } 100% { transform: translate(0,0); }
-    }
-    @keyframes glow-rojo-metal {
-      0% { box-shadow: 0 0 20px #ff0000aa, 0 0 40px #ff000066, 0 0 20px #ffffff33 inset; }
-      50% { box-shadow: 0 0 60px #ff0000ff, 0 0 100px #ff1a1aff, 0 0 70px #ffffff77 inset, 0 0 30px #ff0000 inset; }
-      100% { box-shadow: 0 0 20px #ff0000aa, 0 0 40px #ff000066, 0 0 20px #ffffff33 inset; }
-    }
+/* contenedor de las tarjetas: usa grid para mejor alineación */
+.galeria-pilotos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 18px;
+  align-items: start;
+  justify-items: center;
+}
 
+/* tarjeta */
+.tarjeta-piloto {
+  width: 100%;
+  max-width: 260px;        /* controla el ancho máximo */
+  background: linear-gradient(145deg,#700000,#b00000);
+  border-radius: 14px;
+  border: 3px solid #bfbfbf;
+  outline: 3px solid #ffffff22;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform .25s ease, box-shadow .25s ease;
+  padding: 10px;
+  min-height: 420px;       /* altura homogénea para todas */
+}
+
+/* imagen: área controlada */
+.tarjeta-piloto .foto-piloto {
+  width: 100%;
+  height: 300px;           /* misma altura para todas las fotos */
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid #d0d0d0;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  background: #000;
+  flex-shrink: 0;
+}
+
+/* contenedor del nombre para que no empuje la imagen */
+.tarjeta-piloto .nombre-piloto {
+  margin-top: 12px;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.05rem;
+  color: #fff;
+  letter-spacing: 0.6px;
+  text-transform: none;
+  padding: 6px 8px;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+/* hover solo en dispositivos con puntero */
+@media (hover: hover) and (pointer: fine) {
+  .tarjeta-piloto:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow:
+      0 12px 30px rgba(255,0,0,0.15),
+      0 0 90px rgba(255,26,26,0.08);
+    outline: 4px solid #ffffff55;
+    border-color: #ff0000;
+  }
+}
     /* Sponsored strip */
     .cartel img.logo { width:90px; height:auto; margin-bottom:10px; }
     .sponsored-strip {

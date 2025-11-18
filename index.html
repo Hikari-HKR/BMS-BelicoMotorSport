@@ -416,68 +416,37 @@
     height: 45px;
   }
 }
-/* --- VITRINA DE HONOR IMPONENTE --- */
-.vitrina-honor {
-    width: 260px;
-    padding: 18px;
-    border-radius: 18px;
-    background: linear-gradient(135deg, #000000, #530000, #b00000);
-    border: 4px solid #ffffffaa;
-    box-shadow: 
-        0 0 15px #ff0000aa,
-        0 0 45px #ff1a1a,
-        0 0 80px #ff000055 inset;
-    animation: honorGlow 2.2s infinite ease-in-out alternate,
-               honorShake 0.14s infinite linear;
-    text-align: center;
-    margin: 40px auto;
-}
+ /* --- PEGA AQUÍ EL CSS DEL BANNER --- */
+    .banner-campeon {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 40px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 35px #ff0000aa;
+    }
 
-.vitrina-honor img {
-    width: 100%;
-    height: 350px; /* tamaño tipo tarjeta/carta */
-    object-fit: cover;
-    border-radius: 12px;
-    border: 3px solid white;
-    box-shadow: 0 0 20px red;
-}
+    .banner-campeon img {
+      width: 100%;
+      display: block;
+      filter: brightness(0.8) contrast(1.2);
+    }
 
-/* Título eléctrico */
-.vitrina-titulo {
-    font-size: 28px;
-    font-weight: 900;
-    color: #ff0000;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    letter-spacing: 2px;
-    text-shadow:
-        0 0 8px #ff0000,
-        0 0 18px #ff1a1a,
-        0 0 30px #ffffffaa;
-    animation: glitchHonor 0.8s infinite linear;
-}
-
-/* Animación glitch */
-@keyframes glitchHonor {
-    0% { text-shadow: 2px 2px red, -2px -2px white; }
-    20% { text-shadow: -2px 2px #ff0000, 2px -2px white; }
-    40% { text-shadow: 2px -2px red, -2px 2px white; }
-    60% { text-shadow: -2px -2px #ff0000, 2px 2px white; }
-    100% { text-shadow: 2px 2px red, -2px -2px white; }
-}
-
-/* Glow intensificado */
-@keyframes honorGlow {
-    0% { box-shadow: 0 0 20px #ff000080; }
-    100% { box-shadow: 0 0 55px #ff1a1a, 0 0 100px #ff000055 inset; }
-}
-
-/* Vibración estilo motor */
-@keyframes honorShake {
-    0% { transform: translate(0,0); }
-    50% { transform: translate(1px,-1px); }
-    100% { transform: translate(0,0); }
-}
+    .banner-titulo {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-family: 'Anton', sans-serif;
+      font-size: 42px;
+      text-shadow: 0 0 15px #ff0000, 0 0 25px #ff0000;
+      letter-spacing: 2px;
+      padding: 10px 20px;
+      background: rgba(0,0,0,0.35);
+      border-radius: 12px;
+    }
  } /* end media */
 
   </style>
@@ -522,13 +491,12 @@
 <a href="#piloto-casco" class="btn-glitch">Pilotos del equipo</a>
  <div class="honor-wrapper">
 
-    <!-- VITRINA DE HONOR -->
-    <div class="vitrina-honor">
-        <div class="vitrina-titulo">Campeón Andes Racing 2025</div>
-        <img src="15.jpg" alt="Campeón 2025">
+    <div class="banner-campeon">
+    <img src="16.png" alt="Campeón 2025">
+    <div class="banner-titulo">
+      CAMPEÓN ANDES RACING 2025
     </div>
-
-</div>
+  </div>
   <h1>Siente la potencia. Conquista la pista.</h1>
   <p>Belico MotorSport — diseño agresivo y rendimiento extremo.</p>
   <h2>Contáctanos y pruébate en nuestro equipo</h2>

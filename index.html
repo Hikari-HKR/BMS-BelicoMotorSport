@@ -217,67 +217,72 @@
       overflow: hidden;
       transition: 0.3s;
     }
-   /* 🔥 BANNER IMPLACABLE CAMPEÓN 2025 🔥 */
-.banner-campeon {
-  width: 420px;
-  max-width: 95%;
-  margin: 40px auto;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 4px solid #ff0000;
-  box-shadow: 0 0 25px #ff0000, 0 0 50px #ff1a1a;
-  animation: brilloRojo 2s infinite alternate;
-  position: relative;
-}
+  div class="tarjeta-contenedor">
+  
+  <div class="tarjeta-imponente">
+    <img src="Campeon2025.png" class="imagen-carta">
+  </div>
 
-.banner-campeon img {
-  width: 100%;
-  display: block;
-}
+  <h2 class="titulo-diego">DIEGO FERNÁNDEZ</h2>
 
-@keyframes brilloRojo {
-  from { box-shadow: 0 0 20px #ff0000; }
-  to { box-shadow: 0 0 50px #ff1a1a; }
-}
-tro del <style>
-/* 🔥 TÍTULO AGRESIVO DIEGO FERNANDEZ 🔥 */
-.banner-wrapper {
+</div>
+
+<style>
+/* Contenedor general */
+.tarjeta-contenedor {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 25px;
-  margin: 40px auto;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
 }
 
-.titulo-agresivo {
-  font-size: 46px;
+/* Tarjeta tipo carta */
+.tarjeta-imponente {
+  width: 420px;
+  height: 610px;
+  background: linear-gradient(135deg, black, #520000, #ff0000);
+  padding: 10px;
+  border-radius: 18px;
+  border: 4px solid #ffffffaa;
+  box-shadow: 
+      0 0 25px #ff0000aa,
+      0 0 40px #ff0000aa inset;
+  animation: respiracion 3s infinite alternate ease-in-out;
+  overflow: hidden;
+}
+
+.imagen-carta {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* Animación imponente */
+@keyframes respiracion {
+  0% { box-shadow: 0 0 20px #ff000080, 0 0 35px #ff000080 inset; }
+  100% { box-shadow: 0 0 40px #ff0000cc, 0 0 60px #ff0000cc inset; }
+}
+
+/* Título agresivo */
+.titulo-diego {
   font-family: 'Anton', sans-serif;
-  letter-spacing: 3px;
+  font-size: 55px;
   color: #ff0000;
   text-shadow: 
-    0 0 10px #ff0000,
-    0 0 25px #ff1a1a,
-    0 0 45px #ff3333;
-  animation: pulsoRojo 1s infinite alternate;
-  text-transform: uppercase;
+      0 0 8px #ffffff,
+      0 0 15px #ff0000,
+      0 0 30px #ff0000;
+  letter-spacing: 3px;
+  margin: 0;
+  animation: brillo 2s infinite alternate;
 }
 
-@keyframes pulsoRojo {
-  from { text-shadow: 0 0 10px #ff0000; transform: scale(1); }
-  to   { text-shadow: 0 0 30px #ff1a1a; transform: scale(1.07); }
-}
-
-/* Versión móvil */
-@media (max-width: 768px) {
-  .titulo-agresivo {
-    font-size: 34px;
-    text-align: center;
-    margin-top: 12px;
-  }
-  .banner-wrapper {
-    flex-direction: column;
-  }
+/* Parpadeo agresivo */
+@keyframes brillo {
+  0% { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.05); }
 }
     /* ----------------------
        MOBILE (MEDIA QUERIES)

@@ -198,7 +198,10 @@
     .sponsor-logo { height:60px; filter: drop-shadow(0 0 10px white); transition: transform .3s ease, filter .3s ease; }
     .sponsor-logo:hover { transform: scale(1.25); filter: drop-shadow(0 0 25px red); }
 
-   
+    /* ----------------------
+       BANNER CAMPEÓN (GLOBAL — fuera de media queries)
+       ---------------------- */
+  
       /* ⬇️ aquí pegas el CSS del botón */
     
     .btn-glitch {
@@ -217,33 +220,6 @@
       overflow: hidden;
       transition: 0.3s;
     }
-   /* 🔥 TÍTULO AGRESIVO DIEGO FERNANDEZ 🔥 */
-.banner-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
-  margin: 40px auto;
-  flex-wrap: wrap;
-}
-
-.titulo-agresivo {
-  font-size: 46px;
-  font-family: 'Anton', sans-serif;
-  letter-spacing: 3px;
-  color: #ff0000;
-  text-shadow: 
-    0 0 10px #ff0000,
-    0 0 25px #ff1a1a,
-    0 0 45px #ff3333;
-  animation: pulsoRojo 1s infinite alternate;
-  text-transform: uppercase;
-}
-
-@keyframes pulsoRojo {
-  from { text-shadow: 0 0 10px #ff0000; transform: scale(1); }
-  to   { text-shadow: 0 0 30px #ff1a1a; transform: scale(1.07); }
-}
 
     /* ----------------------
        MOBILE (MEDIA QUERIES)
@@ -319,21 +295,12 @@
   <section class="content">
 
     <a href="#piloto-casco" class="btn-glitch">Pilotos del equipo</a>
-   <!-- 🔥 BANNER + TÍTULO AGRESIVO 🔥 -->
-<div class="banner-wrapper">
 
-  <!-- Banner estilo carta -->
-  <div class="banner-campeon">
-    <img src="campeon2025.png" alt="Campeón Andes Racing 2025">
-  </div>
 
-  <!-- Título agresivo -->
-  <div class="titulo-agresivo">
-    Diego<br>Fernandez
-  </div>
 
-</div>
-
+    <h1>Siente la potencia. Conquista la pista.</h1>
+    <p>Belico MotorSport — diseño agresivo y rendimiento extremo.</p>
+    <h2>Contáctanos y pruébate en nuestro equipo</h2>
 
     <div class="buttons">
       <a class="btn" href="https://www.instagram.com/belicomotorsport" target="_blank">

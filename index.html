@@ -234,6 +234,80 @@
       white-space: nowrap;
     }
 
+    /* ---------- Estilo definitivo para el botón "Pilotos del equipo" ---------- */
+/* Usa selector con mayor especificidad y estado focus/active para que siempre se aplique */
+a.btn-glitch,
+a.btn-glitch:link,
+a.btn-glitch:visited {
+  display: inline-block;
+  padding: 14px 30px;
+  background: #000;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  border: 3px solid #ff0000;
+  border-radius: 10px;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  overflow: hidden;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+  position: relative;
+  z-index: 2;
+}
+
+/* hover / focus / active (accesibilidad) */
+a.btn-glitch:hover,
+a.btn-glitch:focus,
+a.btn-glitch:active {
+  background: #ff0000;
+  color: #000;
+  transform: scale(1.06);
+  box-shadow: 0 0 18px #ff0000, 0 0 40px #ff0000;
+  outline: none;
+}
+
+/* GLITCH clones (solo visibles en hover for performance) */
+a.btn-glitch::before,
+a.btn-glitch::after {
+  content: 'PILOTOS DEL EQUIPO';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  color: #ff0000;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+
+/* animaciones solo al pasar el ratón o al focus (no en móvil) */
+@media (hover: hover) and (pointer: fine) {
+  a.btn-glitch:hover::before {
+    opacity: 1;
+    animation: glitchA .18s infinite alternate-reverse;
+    text-shadow: -2px 0 #00f;
+  }
+  a.btn-glitch:hover::after {
+    opacity: .8;
+    animation: glitchB .18s infinite alternate;
+    text-shadow: 2px 0 #f00;
+  }
+}
+
+/* Animaciones glitch */
+@keyframes glitchA {
+  0% { transform: translate(-3px,-2px) skewX(6deg); clip-path: inset(5% 0 60% 0); }
+  50% { transform: translate(3px,2px) skewX(-6deg); clip-path: inset(40% 0 20% 0); }
+  100% { transform: translate(-1px,1px) skewX(3deg); clip-path: inset(10% 0 40% 0); }
+}
+@keyframes glitchB {
+  0% { transform: translate(3px,-1px) skewX(-6deg); clip-path: inset(60% 0 10% 0); }
+  50% { transform: translate(-3px,1px) skewX(6deg); clip-path: inset(20% 0 50% 0); }
+  100% { transform: translate(1px,-1px) skewX(-3deg); clip-path: inset(30% 0 15% 0); }
+}
     /* ----------------------
        MOBILE (MEDIA QUERIES)
        ---------------------- */

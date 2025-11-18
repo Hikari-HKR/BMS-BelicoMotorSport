@@ -212,12 +212,14 @@
   /* Si quieres centrar texto dentro del banner: */
   display: block;
 
-    .banner-campeon img {
-      width: 100%;
-      display: block;
-      filter: brightness(0.85) contrast(1.1);
-      vertical-align: middle;
-    }
+  /* Opción A: imagen con altura automática (mantiene proporción original) */
+.banner-campeon img {
+  display: block;
+  width: 100%;
+  height: auto;           /* mantiene proporción de la imagen */
+  object-fit: cover;      /* recorta si es necesario para llenar el ancho */
+  vertical-align: middle;
+  max-height: 500px;      /* evita que sea gigantesca; ajusta según prefieras */
 
     .banner-titulo {
       position: absolute;

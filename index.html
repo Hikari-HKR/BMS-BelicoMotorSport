@@ -198,20 +198,19 @@
     .sponsor-logo { height:60px; filter: drop-shadow(0 0 10px white); transition: transform .3s ease, filter .3s ease; }
     .sponsor-logo:hover { transform: scale(1.25); filter: drop-shadow(0 0 25px red); }
 
-    /* ----------------------
-       BANNER CAMPEÓN (GLOBAL — fuera de media queries)
-       ---------------------- */
-    .banner-campeon {
-      position: relative;
-      width: 100%;
-      max-width:50px;
-      margin: 40px auto;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 0 35px #ff0000aa;
-      border: 2px solid rgba(255,255,255,0.06);
-      background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.35));
-    }
+   /* --- BANNER CAMPEÓN: versión corregida y responsive --- */
+.banner-campeon {
+  position: relative;
+  width: 100%;
+  max-width: 300px;        /* ancho máximo del banner en desktop */
+  margin: 40px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 35px #ff0000aa;
+  border: 2px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.35));
+  /* Si quieres centrar texto dentro del banner: */
+  display: block;
 
     .banner-campeon img {
       width: 100%;

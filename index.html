@@ -416,9 +416,9 @@
     height: 45px;
   }
 }
- /* --- VITRINA DE HONOR IMPONENTE --- */
+/* --- VITRINA DE HONOR IMPONENTE --- */
 .vitrina-honor {
-    width: 280px;
+    width: 260px;
     padding: 18px;
     border-radius: 18px;
     background: linear-gradient(135deg, #000000, #530000, #b00000);
@@ -430,11 +430,13 @@
     animation: honorGlow 2.2s infinite ease-in-out alternate,
                honorShake 0.14s infinite linear;
     text-align: center;
-    margin: 20px auto;
+    margin: 40px auto;
 }
 
 .vitrina-honor img {
     width: 100%;
+    height: 350px; /* tamaño tipo tarjeta/carta */
+    object-fit: cover;
     border-radius: 12px;
     border: 3px solid white;
     box-shadow: 0 0 20px red;
@@ -442,7 +444,7 @@
 
 /* Título eléctrico */
 .vitrina-titulo {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 900;
     color: #ff0000;
     text-transform: uppercase;
@@ -452,7 +454,6 @@
         0 0 8px #ff0000,
         0 0 18px #ff1a1a,
         0 0 30px #ffffffaa;
-    position: relative;
     animation: glitchHonor 0.8s infinite linear;
 }
 
@@ -476,24 +477,6 @@
     0% { transform: translate(0,0); }
     50% { transform: translate(1px,-1px); }
     100% { transform: translate(0,0); }
-}
-
-/* ACOMODAR AL LADO DEL BOTÓN */
-.honor-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-/* 📱 RESPONSIVE */
-@media(max-width: 768px) {
-    .honor-wrapper {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .vitrina-honor { width: 90%; }
 }
  } /* end media */
 

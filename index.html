@@ -199,7 +199,71 @@
     .sponsor-logo:hover { transform: scale(1.25); filter: drop-shadow(0 0 25px red); }
 
   }
-  
+  /* -------------------------
+   TITULOS AGRESIVOS PRO
+   ------------------------- */
+.titulo-agresivo {
+  font-size: 4rem;
+  color: #ffcc00;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: 'Anton', sans-serif;
+  text-shadow: 
+    0 0 15px #ffcc00,
+    0 0 35px #ff0000,
+    0 0 65px #ff0000,
+    4px 4px 20px #000;
+  animation: agresivoPulse 1.8s infinite ease-in-out;
+}
+
+.sub-agresivo {
+  font-size: 1.8rem;
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  text-shadow: 0 0 18px #ff0000;
+}
+
+.call-agresivo {
+  font-size: 2.3rem;
+  color: #ff0000;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: bold;
+  text-shadow:
+    0 0 20px #ff0000,
+    0 0 40px #ff1a1a,
+    0 0 80px #ff0000;
+  animation: glowRed 1.6s infinite alternate;
+}
+
+@keyframes agresivoPulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.04); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+@keyframes glowRed {
+  from {
+    text-shadow:
+      0 0 15px #ff0000,
+      0 0 35px #ff0000,
+      0 0 65px #ff1a1a;
+  }
+  to {
+    text-shadow:
+      0 0 25px #ff1a1a,
+      0 0 55px #ff0000,
+      0 0 90px #ff0000;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .titulo-agresivo { font-size: 2rem; }
+  .sub-agresivo { font-size: 1.1rem; }
+  .call-agresivo { font-size: 1.4rem; }
+}
+
 
     /* ----------------------
        MOBILE (MEDIA QUERIES)
@@ -268,10 +332,16 @@
     <img src="HKR.png" class="sponsor-logo" alt="HKR">
   </div>
 
-    <h1>Siente la potencia. Conquista la pista.</h1>
-    <p>Belico MotorSport — diseño agresivo y rendimiento extremo.</p>
-    <h2>Contáctanos y pruébate en nuestro equipo</h2>
+   <h1 class="titulo-agresivo">Siente la potencia. Conquista la pista.</h1>
 
+<p class="sub-agresivo">
+  Belico MotorSport — diseño agresivo y rendimiento extremo.
+</p>
+
+<h2 class="call-agresivo">
+  Contáctanos y pruébate en nuestro equipo
+</h2>
+ 
     <div class="buttons">
       <a class="btn" href="https://www.instagram.com/belicomotorsport" target="_blank">
         <img src="—Pngtree—instagram icon vector_8704817.png" alt="instagram"> Instagram

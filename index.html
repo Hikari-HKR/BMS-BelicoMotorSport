@@ -416,34 +416,144 @@
     /* ----------------------
        MOBILE (MEDIA QUERIES)
        ---------------------- */
-    @media (max-width: 768px) {
-      header { flex-direction: column; align-items:center; padding: 10px 12px; gap:8px; }
-      header img { height:72px; }
+    /* ----------------------
+   MOBILE VERSION (OPTIMIZADA)
+   ---------------------- */
+@media (max-width: 768px) {
 
-      .sim-track { width:88%; max-width:420px; margin:8px auto; overflow:hidden; }
-      .sim-logos { gap:12px; justify-content:center; }
-      .sim-logos img { height:28px; }
+  /* HEADER */
+  header {
+    flex-direction: column;
+    padding: 10px;
+    gap: 6px;
+  }
 
-      .sponsored-strip { padding:8px 12px; justify-content:flex-start; overflow-x:auto; white-space:nowrap; }
-      .sponsored-title { font-size:26px; margin-right:12px; white-space:nowrap; }
-      .sponsor-logo { height:34px; flex-shrink:0; }
+  header img {
+    height: 60px;
+  }
 
-      .content { margin-top:48px; padding:0 12px; }
-      .content h1 { font-size:1.8rem; }
-      .content p { font-size:1rem; }
+  /* CARRUSEL */
+  .sim-track {
+    width: 100%;
+    margin: 5px auto;
+  }
 
-      .buttons { flex-direction:column; gap:12px; padding:0 12px; align-items:stretch; }
-      .btn, .btn-glitch { width:100%; font-size:16px; padding:12px; justify-content:center; }
+  .sim-logos {
+    gap: 10px;
+  }
 
-      .gallery { display:block; padding:0 12px; margin:18px auto; max-width:100%; }
-      .gallery img { width:100%; margin-bottom:12px; border-radius:10px; }
+  .sim-logos img {
+    height: 26px;
+  }
 
-      .galeria-pilotos { width:95%; max-width:520px; margin:18px auto; flex-direction:column; gap:14px; }
-      .tarjeta-piloto { gap:12px; align-items:center; width:100%; padding:10px; border-radius:10px; }
-      .tarjeta-piloto img { width:96px; height:96px; object-fit:cover; border-radius:8px; }
+  /* SPONSORED BAR */
+  .sponsored-strip {
+    padding: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 10px;
+  }
 
-      
-    }
+  .sponsored-title {
+    font-size: 22px;
+  }
+
+  .sponsor-logo {
+    height: 32px;
+  }
+
+  /* TITULOS */
+  .titulo-agresivo {
+    font-size: 1.9rem;
+    line-height: 2.2rem;
+    padding: 0 10px;
+  }
+
+  .sub-agresivo {
+    font-size: 1rem;
+    padding: 0 12px;
+  }
+
+  .pulso-rojo {
+    font-size: 1.2rem;
+    padding: 8px 12px;
+  }
+
+  /* BOTONES */
+  .contenedor-botones {
+    padding: 0 14px;
+  }
+
+  .boton-seleccion {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 14px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  /* GALERÍA DE IMÁGENES */
+  .gallery {
+    display: block;
+    padding: 0 14px;
+    margin-top: 20px;
+  }
+
+  .gallery img {
+    width: 100%;
+    margin-bottom: 14px;
+    border-radius: 10px;
+  }
+
+  /* PILOTOS */
+  .galeria-pilotos {
+    flex-direction: column;
+    gap: 12px;
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .tarjeta-piloto {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .tarjeta-piloto img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  /* MODAL */
+  .modal-contenido {
+    width: 92%;
+    margin: 40px auto;
+    padding: 18px;
+    border-radius: 10px;
+    background-position: center;
+  }
+
+  .titulo-metal {
+    font-size: 24px;
+  }
+
+  .texto-belico {
+    font-size: 15px;
+  }
+}
+
 
   </style>
 </head>

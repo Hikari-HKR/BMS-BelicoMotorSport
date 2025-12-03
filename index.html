@@ -318,83 +318,94 @@
   color: #000;
   transform: scale(1.1);
 }
-/* --------------------------
-   MODAL / VENTANA PROFESIONAL
--------------------------- */
-
-.modal {
+   /* Fondo general del modal */
+.modal-belico {
   display: none;
   position: fixed;
-  z-index: 999;
-  padding-top: 120px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.55);
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease;
 }
 
+/* Contenedor metalizado */
 .modal-contenido {
-  position: relative;
-  overflow: hidden;
-  background: #1b1b1b;
-  margin: auto;
-  padding: 25px 35px;
-  border: 2px solid #6d6d6d;
   width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+  background: linear-gradient(145deg, #3a3a3a, #1d1d1d);
+  border: 2px solid #888;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,0,0,0.4), inset 0 0 25px rgba(255,255,255,0.1);
+  position: relative;
+  color: white;
+
+  /* Imagen en layer */
+  background-image: url('img/fondo-belico.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color: rgba(0,0,0,0.6);
 }
 
-/* ==== Layer con imagen de fondo en baja opacidad ==== */
-.modal-contenido::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 105%;
-  height: 105%;
-  background: url("https://raw.githubusercontent.com/Hikari-HKR/BMS-BelicoMotorSport/refs/heads/main/122.jpg") center/cover no-repeat;
-  opacity: 0.18;         
-  filter: grayscale(30%);
-  z-index: -1;
-}
-
-
+/* Botón cerrar */
 .cerrar {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 35px;
   cursor: pointer;
+  color: #ff0000;
+  text-shadow: 0 0 10px red;
+  transition: 0.2s;
 }
-
 .cerrar:hover {
-  color: #fff;
+  color: white;
 }
 
-.modal-titulo {
-  font-size: 2em;
+/* Título metalizado */
+.titulo-metal {
   text-align: center;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 12px;
-  letter-spacing: 2px;
-  background: linear-gradient(to right, #cfcfcf, #898989);
+  font-size: 32px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #aaa, #fff, #aaa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
 }
 
-.modal-texto {
-  font-size: 1.1em;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  color: #dcdcdc;
-  line-height: 1.5;
+/* Texto */
+.texto-belico {
+  line-height: 1.6;
+  font-size: 18px;
+  text-shadow: 0 0 5px black;
 }
 
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to   {opacity: 1;}
+}
+
+/* Botón estilo */
+.btn-acerca {
+  padding: 12px 20px;
+  background: #b70000;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.btn-acerca:hover {
+  background: #ff0000;
+  transform: scale(1.05);
+}
     /* ----------------------
        MOBILE (MEDIA QUERIES)
        ---------------------- */
@@ -461,10 +472,13 @@
     <img src="44.png" class="sponsor-logo" alt="Dinamyc Competición">
     <img src="HKR.png" class="sponsor-logo" alt="HKR">
   </div>
- <div class="contenedor-botones">
+<div class="contenedor-botones">
     <a href="#galeria-pilotos" class="boton-seleccion">Galería de Pilotos</a>
-    <a href="#contacto" class="boton-seleccion">Acerca del Equipo</a>
+
+    <!-- BOTÓN QUE AHORA ABRE EL MODAL -->
+    <button class="boton-seleccion" onclick="abrirModal()">Acerca del Equipo</button>
 </div>
+
 <div class="texto-centro">
  <h1 class="titulo-agresivo">Siente la potencia. Conquista la pista.</h1>
 
@@ -528,157 +542,60 @@
   </section>
 
   <footer>© 2025 Bélico MotorSport — Todos los derechos reservados</footer>
-<!-- VENTANA MODAL -->
-<!-- VENTANA MODAL -->
-<div id="modal-equipo" class="modal">
+
+<div id="modalBelico" class="modal-belico">
   <div class="modal-contenido">
-    <span class="cerrar">&times;</span>
+    <span class="cerrar" onclick="cerrarModal()">×</span>
 
-    <h2 class="modal-titulo">Acerca del Equipo</h2>
+    <h2 class="titulo-metal">ACERCA DEL EQUIPO</h2>
 
-    <p class="modal-texto">
-BÉLICO MOTOR SPORT es un equipo de competición automotriz enfocado en performance extremo, desarrollo técnico y dominio en pista. Nuestra filosofía es clara: cada carrera se afronta con mentalidad ganadora, precisión absoluta y actitud implacable.
-
-Quiénes somos
-
-Somos una escudería formada por pilotos, mecánicos e ingenieros apasionados por la velocidad y la perfección técnica. Transformamos cada vehículo en una extensión del piloto y cada circuito en un campo de conquista.
-
-Nuestra misión
-
-No buscamos competir. Buscamos imponer respeto en la pista.
-Elevamos el estándar de agresividad controlada, innovación mecánica y estrategia de carrera.
-
-Nuestra visión
-
-Convertirnos en un equipo referente en el mundo del motorsport, reconocido por:
-
-actitud competitiva
-identidad agresiva
-rendimiento sólido y consistente
-desarrollo técnico y estético de alto nivel
-
-Nuestra identidad
-
-En BÉLICO MOTOR SPORT no hay cabida para lo tibio. Nuestro ADN es:
-
-potencia
-disciplina
-precisión
-mentalidad bélica
-
-Aquí no se corre por participar…
-Se corre para dominar.
-
-Bienvenido a la familia BÉLICA
-
-Si estás en nuestro equipo, en nuestra pista o en nuestra audiencia…
-ya formas parte de nuestra expansión. Prepárate:
-el rugido del motor es nuestra firma y la velocidad, nuestro lenguaje.
-Aquí empieza a correr tu corazón… en modo BÉLICO.
+    <p class="texto-belico">
+      BÉLICO MOTOR SPORT es un equipo de competición automotriz enfocado en performance extremo,
+      desarrollo técnico y dominio en pista. Nuestra filosofía es clara: cada carrera se afronta con
+      mentalidad ganadora, precisión absoluta y actitud implacable.
+      <br><br>
+      <strong>Quiénes somos</strong><br>
+      Somos una escudería formada por pilotos, mecánicos e ingenieros apasionados por la velocidad y
+      la perfección técnica. Transformamos cada vehículo en una extensión del piloto y cada circuito en un campo de conquista.
+      <br><br>
+      <strong>Nuestra misión</strong><br>
+      No buscamos competir. Buscamos imponer respeto en la pista. Elevamos el estándar de agresividad
+      controlada, innovación mecánica y estrategia de carrera.
+      <br><br>
+      <strong>Nuestra visión</strong><br>
+      Convertirnos en un equipo referente en el mundo del motorsport, reconocido por:<br>
+      – actitud competitiva<br>
+      – identidad agresiva<br>
+      – rendimiento sólido y consistente<br>
+      – desarrollo técnico y estético de alto nivel
+      <br><br>
+      <strong>Nuestra identidad</strong><br>
+      En BÉLICO MOTOR SPORT no hay cabida para lo tibio. Nuestro ADN es:<br>
+      potencia · disciplina · precisión · mentalidad bélica
+      <br><br>
+      Aquí no se corre por participar… Se corre para dominar.
+      <br><br>
+      <strong>Bienvenido a la familia BÉLICA</strong><br>
+      Si estás en nuestro equipo, en nuestra pista o en nuestra audiencia… ya formas parte de nuestra
+      expansión. Prepárate: el rugido del motor es nuestra firma y la velocidad, nuestro lenguaje.
+      <br><br>
+      Aquí empieza a correr tu corazón… en modo BÉLICO.
     </p>
-
   </div>
 </div>
-
-<style>
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  padding-top: 120px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(4px);
+<script>
+function abrirModal() {
+  document.getElementById("modalBelico").style.display = "block";
 }
 
-.modal-contenido {
-  position: relative;
-  overflow: hidden;
-  background: #1b1b1b;
-  margin: auto;
-  padding: 35px 35px;
-  border: 2px solid #6d6d6d;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
-  z-index: 1;
+function cerrarModal() {
+  document.getElementById("modalBelico").style.display = "none";
 }
 
-/* Fondo tipo layer */
-.modal-contenido::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("122.jpg") center/cover no-repeat;
-  opacity: 0.16;
-  filter: grayscale(40%);
-  z-index: -1;
-}
-
-.cerrar {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.cerrar:hover { color: #fff; }
-
-.modal-titulo {
-  font-size: 2em;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: 700;
-  margin-bottom: 18px;
-  color: #e3e3e3;
-  letter-spacing: 1.5px;
-}
-
-.modal-texto {
-  position: relative;
-  z-index: 2;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.05em;
-  color: #d6d6d6;
-  line-height: 1.58;
-  text-align: left;
-  white-space: pre-line;
-}
-  </div>
-</div>
-
-  <!-- 🔽 AQUÍ VA TU SCRIPT 🔽 -->
-  <script>
-    const botonEquipo = document.querySelector('a[href="#contacto"]');
-    const modal = document.getElementById('modal-equipo');
-    const cerrar = document.querySelector('.cerrar');
-
-    // Abrir modal
-    botonEquipo.addEventListener('click', function(event) {
-      event.preventDefault();
-      modal.style.display = "block";
-    });
-
-    // Cerrar con la X
-    cerrar.addEventListener('click', function() {
-      modal.style.display = "none";
-    });
-
-    // Cerrar clic afuera
-    window.addEventListener('click', function(event) {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  </script>
-  <!-- 🔼 AQUÍ TERMINA EL SCRIPT 🔼 -->
-
+window.onclick = function(e) {
+  const modal = document.getElementById("modalBelico");
+  if (e.target === modal) modal.style.display = "none";
+};
+</script>
 </body>
 </html>

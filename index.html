@@ -318,7 +318,69 @@
   color: #000;
   transform: scale(1.1);
 }
+/* --------------------------
+   MODAL / VENTANA EMERGENTE
+   -------------------------- */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 999;
+  padding-top: 120px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(6px);
+}
 
+.modal-contenido {
+  background: #111;
+  margin: auto;
+  padding: 25px 35px;
+  border: 3px solid #ffcc00;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #ffcc00, 0 0 45px #ff0000 inset;
+  animation: abrirModal .4s ease-out;
+}
+
+@keyframes abrirModal {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.cerrar {
+  color: #ff0000;
+  float: right;
+  font-size: 34px;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 0 10px red;
+}
+
+.cerrar:hover {
+  color: white;
+  text-shadow: 0 0 15px #fff;
+}
+
+.modal-titulo {
+  font-size: 2.4em;
+  color: #ffcc00;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 0 15px #ffcc00;
+  margin-bottom: 10px;
+}
+
+.modal-texto {
+  font-size: 1.2em;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 0 10px #ff0000;
+}
     /* ----------------------
        MOBILE (MEDIA QUERIES)
        ---------------------- */
@@ -452,6 +514,44 @@
   </section>
 
   <footer>© 2025 Bélico MotorSport — Todos los derechos reservados</footer>
+<!-- VENTANA MODAL -->
+<div id="modal-equipo" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar">&times;</span>
+
+    <h2 class="modal-titulo">Acerca del Equipo</h2>
+    <p class="modal-texto">
+      Bélico MotorSport es un equipo diseñado para competir al límite.  
+      Disciplina, agresividad, estrategia y unión: eso nos define en cada carrera.
+      Si buscas un equipo con sangre competitiva, este es tu lugar.
+    </p>
+  </div>
+</div>
+  <!-- 🔽 AQUÍ VA TU SCRIPT 🔽 -->
+  <script>
+    const botonEquipo = document.querySelector('a[href="#contacto"]');
+    const modal = document.getElementById('modal-equipo');
+    const cerrar = document.querySelector('.cerrar');
+
+    // Abrir modal
+    botonEquipo.addEventListener('click', function(event) {
+      event.preventDefault();
+      modal.style.display = "block";
+    });
+
+    // Cerrar con la X
+    cerrar.addEventListener('click', function() {
+      modal.style.display = "none";
+    });
+
+    // Cerrar clic afuera
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+  <!-- 🔼 AQUÍ TERMINA EL SCRIPT 🔼 -->
 
 </body>
 </html>

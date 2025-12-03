@@ -552,6 +552,41 @@
   .texto-belico {
     font-size: 15px;
   }
+ /* --- Flechas de navegación SOLO para celular --- */
+@media (max-width: 768px) {
+
+  .modal-scroll {
+    max-height: 65vh;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+
+  /* Flechas */
+  .flecha-scroll {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    color: #ff0000;
+    text-shadow: 0 0 10px red;
+    cursor: pointer;
+    z-index: 99999;
+    opacity: 0.9;
+  }
+
+  .flecha-arriba {
+    top: 10px;
+  }
+
+  .flecha-abajo {
+    bottom: 10px;
+  }
+
+  .flecha-scroll:active {
+    transform: translateX(-50%) scale(0.9);
+  }
+}
+
 }
 
 

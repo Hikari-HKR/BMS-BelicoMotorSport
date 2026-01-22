@@ -641,7 +641,58 @@
 }
 
 }
+/* =========================
+   PANEL LIGAS – SOLO MÓVIL
+   ========================= */
+@media (max-width: 768px) {
 
+  .panel-ligas {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    right: auto;
+    left: 0;
+    transform: none;
+
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    background: linear-gradient(180deg, #1c1c1c, #000);
+    border-radius: 0;
+    border-left: none;
+    border-top: 3px solid #ff0000;
+
+    box-shadow: 0 -10px 25px rgba(255,0,0,0.4);
+    z-index: 99999;
+  }
+
+  .panel-ligas h2 {
+    display: none; /* Ocultamos el texto LIGAS */
+  }
+
+  .panel-ligas img {
+    width: 70px;
+    filter: drop-shadow(0 0 15px red);
+  }
+
+  .panel-ligas a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Espacio para que no tape contenido */
+  body {
+    padding-bottom: 90px;
+  }
+}
 
   </style>
 </head>

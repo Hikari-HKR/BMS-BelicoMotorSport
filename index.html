@@ -466,6 +466,15 @@
   transform: scale(1.15);
   filter: drop-shadow(0 0 35px #ffffff);
 }
+
+   /* DOFRAN – máximo tamaño sin salirse */
+.dofran-logo {
+  height: 85px;              /* más grande que los otros */
+  max-height: 100%;          /* nunca sale del strip */
+  object-fit: contain;       /* no se deforma */
+  transform: scale(1.15);    /* agranda visualmente */
+}
+
     /* ----------------------
        MOBILE (MEDIA QUERIES)
        ---------------------- */
@@ -693,7 +702,12 @@
     padding-bottom: 90px;
   }
 }
-
+@media (max-width: 768px) {
+  .dofran-logo {
+    height: 48px;
+    transform: scale(1.2);
+  }
+}
   </style>
 </head>
 
@@ -726,7 +740,7 @@
   <div class="sponsored-strip">
     <span class="sponsored-title">SPONSORED</span>
     <img src="44.png" class="sponsor-logo" alt="Dinamyc Competición">
-    <img src="Dofran.png" class="sponsor-logo" alt="Dofran">
+   <img src="Dofran.png" class="sponsor-logo dofran-logo" alt="Dofran">
     <img src="HKR.png" class="sponsor-logo" alt="HKR">
     
   </div>
